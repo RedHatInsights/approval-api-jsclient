@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new InsightsServiceApprovalApIs.UsersApi();
+    instance = new InsightsServiceApprovalApIs.RequestersApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,31 +47,41 @@
       object[property] = value;
   }
 
-  describe('UsersApi', function() {
-    describe('addAction', function() {
-      it('should call addAction successfully', function(done) {
-        //uncomment below and update the code to test addAction
-        //instance.addAction(function(error) {
+  describe('RequestersApi', function() {
+    describe('addRequest', function() {
+      it('should call addRequest successfully', function(done) {
+        //uncomment below and update the code to test addRequest
+        //instance.addRequest(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('fetchActionById', function() {
-      it('should call fetchActionById successfully', function(done) {
-        //uncomment below and update the code to test fetchActionById
-        //instance.fetchActionById(function(error) {
+    describe('fetchRequestById', function() {
+      it('should call fetchRequestById successfully', function(done) {
+        //uncomment below and update the code to test fetchRequestById
+        //instance.fetchRequestById(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
         done();
       });
     });
-    describe('fetchActions', function() {
-      it('should call fetchActions successfully', function(done) {
-        //uncomment below and update the code to test fetchActions
-        //instance.fetchActions(function(error) {
+    describe('fetchRequestStages', function() {
+      it('should call fetchRequestStages successfully', function(done) {
+        //uncomment below and update the code to test fetchRequestStages
+        //instance.fetchRequestStages(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('fetchStageById', function() {
+      it('should call fetchStageById successfully', function(done) {
+        //uncomment below and update the code to test fetchStageById
+        //instance.fetchStageById(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

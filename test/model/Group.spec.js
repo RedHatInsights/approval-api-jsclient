@@ -66,14 +66,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property contactMethod (base name: "contact_method")', function() {
-      // uncomment below and update the code to test the property contactMethod
-      //var instane = new InsightsServiceApprovalApIs.Group();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property contactSetting (base name: "contact_setting")', function() {
-      // uncomment below and update the code to test the property contactSetting
+    it('should have the property userIds (base name: "user_ids")', function() {
+      // uncomment below and update the code to test the property userIds
       //var instane = new InsightsServiceApprovalApIs.Group();
       //expect(instance).to.be();
     });

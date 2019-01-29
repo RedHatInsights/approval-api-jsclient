@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import Operation from './Operation';
 
 /**
  * The Action model module.
@@ -58,7 +57,10 @@ class Action {
                 obj['processed_by'] = ApiClient.convertToType(data['processed_by'], 'String');
             }
             if (data.hasOwnProperty('operation')) {
-                obj['operation'] = Operation.constructFromObject(data['operation']);
+                obj['operation'] = ApiClient.convertToType(data['operation'], 'String');
+            }
+            if (data.hasOwnProperty('stage_id')) {
+                obj['stage_id'] = ApiClient.convertToType(data['stage_id'], 'String');
             }
             if (data.hasOwnProperty('comments')) {
                 obj['comments'] = ApiClient.convertToType(data['comments'], 'String');
@@ -85,9 +87,17 @@ Action.prototype['id'] = undefined;
 Action.prototype['processed_by'] = undefined;
 
 /**
- * @member {module:model/Operation} operation
+ * Types of action, may be one of the value (approve, deny, notify, memo, or skip). The stage will be updated according to the operation.
+ * @member {module:model/Action.OperationEnum} operation
+ * @default 'memo'
  */
-Action.prototype['operation'] = undefined;
+Action.prototype['operation'] = 'memo';
+
+/**
+ * Associated stage id
+ * @member {String} stage_id
+ */
+Action.prototype['stage_id'] = undefined;
 
 /**
  * Comments for action
@@ -103,6 +113,45 @@ Action.prototype['created_at'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>operation</code> property.
+ * @enum {String}
+ * @readonly
+ */
+Action['OperationEnum'] = {
+
+    /**
+     * value: "approve"
+     * @const
+     */
+    "approve": "approve",
+
+    /**
+     * value: "deny"
+     * @const
+     */
+    "deny": "deny",
+
+    /**
+     * value: "notify"
+     * @const
+     */
+    "notify": "notify",
+
+    /**
+     * value: "memo"
+     * @const
+     */
+    "memo": "memo",
+
+    /**
+     * value: "skip"
+     * @const
+     */
+    "skip": "skip"
+};
 
 
 

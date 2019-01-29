@@ -12,8 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import Decision from './Decision';
-import State from './State';
 
 /**
  * The Request model module.
@@ -69,10 +67,10 @@ class Request {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
             if (data.hasOwnProperty('state')) {
-                obj['state'] = State.constructFromObject(data['state']);
+                obj['state'] = ApiClient.convertToType(data['state'], 'String');
             }
             if (data.hasOwnProperty('decision')) {
-                obj['decision'] = Decision.constructFromObject(data['decision']);
+                obj['decision'] = ApiClient.convertToType(data['decision'], 'String');
             }
             if (data.hasOwnProperty('reason')) {
                 obj['reason'] = ApiClient.convertToType(data['reason'], 'String');
@@ -114,14 +112,18 @@ Request.prototype['name'] = undefined;
 Request.prototype['description'] = undefined;
 
 /**
- * @member {module:model/State} state
+ * The state of stage or request. It may be one of values (pending, skipped, notified or finished)
+ * @member {module:model/Request.StateEnum} state
+ * @default 'pending'
  */
-Request.prototype['state'] = undefined;
+Request.prototype['state'] = 'pending';
 
 /**
- * @member {module:model/Decision} decision
+ * Final decision, may be one of the value (undecided, approved, or denied)
+ * @member {module:model/Request.DecisionEnum} decision
+ * @default 'undecided'
  */
-Request.prototype['decision'] = undefined;
+Request.prototype['decision'] = 'undecided';
 
 /**
  * Comments for requests
@@ -143,6 +145,66 @@ Request.prototype['workflow_id'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>state</code> property.
+ * @enum {String}
+ * @readonly
+ */
+Request['StateEnum'] = {
+
+    /**
+     * value: "pending"
+     * @const
+     */
+    "pending": "pending",
+
+    /**
+     * value: "skipped"
+     * @const
+     */
+    "skipped": "skipped",
+
+    /**
+     * value: "notified"
+     * @const
+     */
+    "notified": "notified",
+
+    /**
+     * value: "finished"
+     * @const
+     */
+    "finished": "finished"
+};
+
+
+/**
+ * Allowed values for the <code>decision</code> property.
+ * @enum {String}
+ * @readonly
+ */
+Request['DecisionEnum'] = {
+
+    /**
+     * value: "undecided"
+     * @const
+     */
+    "undecided": "undecided",
+
+    /**
+     * value: "approved"
+     * @const
+     */
+    "approved": "approved",
+
+    /**
+     * value: "denied"
+     * @const
+     */
+    "denied": "denied"
+};
 
 
 

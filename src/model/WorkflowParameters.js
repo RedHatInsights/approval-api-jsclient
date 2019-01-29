@@ -23,8 +23,8 @@ class WorkflowParameters {
      * Constructs a new <code>WorkflowParameters</code>.
      * Parameters to create a workflow
      * @alias module:model/WorkflowParameters
-     * @param name {String} 
-     * @param groupIds {Array.<Number>} 
+     * @param name {String} Workflow name
+     * @param groupIds {Array.<String>} Group ids associated with workflow
      */
     constructor(name, groupIds) { 
         
@@ -59,7 +59,7 @@ class WorkflowParameters {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
             if (data.hasOwnProperty('group_ids')) {
-                obj['group_ids'] = ApiClient.convertToType(data['group_ids'], ['Number']);
+                obj['group_ids'] = ApiClient.convertToType(data['group_ids'], ['String']);
             }
         }
         return obj;
@@ -69,17 +69,20 @@ class WorkflowParameters {
 }
 
 /**
+ * Workflow name
  * @member {String} name
  */
 WorkflowParameters.prototype['name'] = undefined;
 
 /**
+ * Description of workflow
  * @member {String} description
  */
 WorkflowParameters.prototype['description'] = undefined;
 
 /**
- * @member {Array.<Number>} group_ids
+ * Group ids associated with workflow
+ * @member {Array.<String>} group_ids
  */
 WorkflowParameters.prototype['group_ids'] = undefined;
 

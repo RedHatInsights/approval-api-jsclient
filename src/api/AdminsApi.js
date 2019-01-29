@@ -15,9 +15,11 @@
 import ApiClient from "../ApiClient";
 import Action from '../model/Action';
 import Group from '../model/Group';
+import GroupOperationParameters from '../model/GroupOperationParameters';
 import Request from '../model/Request';
 import Stage from '../model/Stage';
 import Template from '../model/Template';
+import User from '../model/User';
 import Workflow from '../model/Workflow';
 import WorkflowParameters from '../model/WorkflowParameters';
 
@@ -100,9 +102,67 @@ export default class AdminsApi {
 
 
     /**
-     * Add a new approver group by given parameters
-     * Add a new approver group by given parameters
-     * @param {module:model/Group} group Parameters need to create approver group
+     * Add an action to a given request
+     * Add an action to a given request
+     * @param {Number} requestId Id of request
+     * @param {module:model/Action} action Action object that will be added
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Action} and HTTP response
+     */
+    addActionByRequestIdWithHttpInfo(requestId, action) {
+      let postBody = action;
+
+      // verify the required parameter 'requestId' is set
+      if (requestId === undefined || requestId === null) {
+        throw new Error("Missing the required parameter 'requestId' when calling addActionByRequestId");
+      }
+
+      // verify the required parameter 'action' is set
+      if (action === undefined || action === null) {
+        throw new Error("Missing the required parameter 'action' when calling addActionByRequestId");
+      }
+
+
+      let pathParams = {
+        'request_id': requestId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['APIKey_auth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Action;
+
+      return this.apiClient.callApi(
+        '/requests/{request_id}/actions', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Add an action to a given request
+     * Add an action to a given request
+     * @param {Number} requestId Id of request
+     * @param {module:model/Action} action Action object that will be added
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Action}
+     */
+    addActionByRequestId(requestId, action) {
+      return this.addActionByRequestIdWithHttpInfo(requestId, action)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Add a new user group by given parameters
+     * Add a new user group by given parameters
+     * @param {module:model/Group} group Parameters need to create user group
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Group} and HTTP response
      */
     addGroupWithHttpInfo(group) {
@@ -136,13 +196,63 @@ export default class AdminsApi {
     }
 
     /**
-     * Add a new approver group by given parameters
-     * Add a new approver group by given parameters
-     * @param {module:model/Group} group Parameters need to create approver group
+     * Add a new user group by given parameters
+     * Add a new user group by given parameters
+     * @param {module:model/Group} group Parameters need to create user group
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Group}
      */
     addGroup(group) {
       return this.addGroupWithHttpInfo(group)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Add a new user by given parameters
+     * Add a new user by given parameters
+     * @param {module:model/User} user Parameters need to create user
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
+     */
+    addUserWithHttpInfo(user) {
+      let postBody = user;
+
+      // verify the required parameter 'user' is set
+      if (user === undefined || user === null) {
+        throw new Error("Missing the required parameter 'user' when calling addUser");
+      }
+
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['APIKey_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = User;
+
+      return this.apiClient.callApi(
+        '/users', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Add a new user by given parameters
+     * Add a new user by given parameters
+     * @param {module:model/User} user Parameters need to create user
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
+     */
+    addUser(user) {
+      return this.addUserWithHttpInfo(user)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -208,8 +318,8 @@ export default class AdminsApi {
 
 
     /**
-     * Return an approver action by id
-     * Return an approver action by id
+     * Return an user action by id
+     * Return an user action by id
      * @param {Number} id Query by id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Action} and HTTP response
      */
@@ -245,8 +355,8 @@ export default class AdminsApi {
     }
 
     /**
-     * Return an approver action by id
-     * Return an approver action by id
+     * Return an user action by id
+     * Return an user action by id
      * @param {Number} id Query by id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Action}
      */
@@ -259,8 +369,8 @@ export default class AdminsApi {
 
 
     /**
-     * Return a list of approver actions
-     * Return a list of approver actions
+     * Return a list of user actions
+     * Return a list of user actions
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
@@ -295,8 +405,8 @@ export default class AdminsApi {
     }
 
     /**
-     * Return a list of approver actions
-     * Return a list of approver actions
+     * Return a list of user actions
+     * Return a list of user actions
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
@@ -311,8 +421,8 @@ export default class AdminsApi {
 
 
     /**
-     * Return approver group by given id
-     * Return approver group by given id
+     * Return user group by given id
+     * Return user group by given id
      * @param {Number} id Query by id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Group} and HTTP response
      */
@@ -348,8 +458,8 @@ export default class AdminsApi {
     }
 
     /**
-     * Return approver group by given id
-     * Return approver group by given id
+     * Return user group by given id
+     * Return user group by given id
      * @param {Number} id Query by id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Group}
      */
@@ -362,8 +472,8 @@ export default class AdminsApi {
 
 
     /**
-     * Return all approver groups
-     * Return all approver groups
+     * Return all user groups
+     * Return all user groups
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
@@ -398,8 +508,8 @@ export default class AdminsApi {
     }
 
     /**
-     * Return all approver groups
-     * Return all approver groups
+     * Return all user groups
+     * Return all user groups
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
@@ -407,6 +517,57 @@ export default class AdminsApi {
      */
     fetchGroups(opts) {
       return this.fetchGroupsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Return associated groups by given user id
+     * Return groups by given user id
+     * @param {Number} userId Id of user
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Group>} and HTTP response
+     */
+    fetchGroupsByUserIdWithHttpInfo(userId) {
+      let postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling fetchGroupsByUserId");
+      }
+
+
+      let pathParams = {
+        'user_id': userId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['APIKey_auth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [Group];
+
+      return this.apiClient.callApi(
+        '/users/{user_id}/groups', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Return associated groups by given user id
+     * Return groups by given user id
+     * @param {Number} userId Id of user
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Group>}
+     */
+    fetchGroupsByUserId(userId) {
+      return this.fetchGroupsByUserIdWithHttpInfo(userId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -468,6 +629,57 @@ export default class AdminsApi {
      */
     fetchRequests(opts) {
       return this.fetchRequestsWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Return associated requests by given user id
+     * Return requests by given user id
+     * @param {Number} userId Id of user
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Request>} and HTTP response
+     */
+    fetchRequestsByUserIdWithHttpInfo(userId) {
+      let postBody = null;
+
+      // verify the required parameter 'userId' is set
+      if (userId === undefined || userId === null) {
+        throw new Error("Missing the required parameter 'userId' when calling fetchRequestsByUserId");
+      }
+
+
+      let pathParams = {
+        'user_id': userId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['APIKey_auth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [Request];
+
+      return this.apiClient.callApi(
+        '/users/{user_id}/requests', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Return associated requests by given user id
+     * Return requests by given user id
+     * @param {Number} userId Id of user
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Request>}
+     */
+    fetchRequestsByUserId(userId) {
+      return this.fetchRequestsByUserIdWithHttpInfo(userId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -741,6 +953,160 @@ export default class AdminsApi {
 
 
     /**
+     * Return user by given id
+     * Return user by given id
+     * @param {Number} id Query by id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
+     */
+    fetchUserByIdWithHttpInfo(id) {
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling fetchUserById");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['APIKey_auth'];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = User;
+
+      return this.apiClient.callApi(
+        '/users/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Return user by given id
+     * Return user by given id
+     * @param {Number} id Query by id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
+     */
+    fetchUserById(id) {
+      return this.fetchUserByIdWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Return a list of users
+     * Return a list of users
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
+     * @param {Number} opts.offset Starting Offset (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/User>} and HTTP response
+     */
+    fetchUsersWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'offset': opts['offset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['APIKey_auth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [User];
+
+      return this.apiClient.callApi(
+        '/users', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Return a list of users
+     * Return a list of users
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
+     * @param {Number} opts.offset Starting Offset (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/User>}
+     */
+    fetchUsers(opts) {
+      return this.fetchUsersWithHttpInfo(opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Return associated users by given group id
+     * Return users by given group id
+     * @param {Number} groupId Id of group
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/User>} and HTTP response
+     */
+    fetchUsersByGroupIdWithHttpInfo(groupId) {
+      let postBody = null;
+
+      // verify the required parameter 'groupId' is set
+      if (groupId === undefined || groupId === null) {
+        throw new Error("Missing the required parameter 'groupId' when calling fetchUsersByGroupId");
+      }
+
+
+      let pathParams = {
+        'group_id': groupId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['APIKey_auth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [User];
+
+      return this.apiClient.callApi(
+        '/groups/{group_id}/users', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Return associated users by given group id
+     * Return users by given group id
+     * @param {Number} groupId Id of group
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/User>}
+     */
+    fetchUsersByGroupId(groupId) {
+      return this.fetchUsersByGroupIdWithHttpInfo(groupId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Return an approval workflow by given id
      * Return an approval workflow by given id
      * @param {Number} id Query by id
@@ -904,7 +1270,65 @@ export default class AdminsApi {
 
 
     /**
-     * Delete approver group by given id
+     * Operation on a list of users to a given group
+     * Users join in or withdraw from a given group
+     * @param {Number} id Query by id
+     * @param {module:model/GroupOperationParameters} groupOperationParameters Parameters need to operate groups
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
+     */
+    groupOperationWithHttpInfo(id, groupOperationParameters) {
+      let postBody = groupOperationParameters;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling groupOperation");
+      }
+
+      // verify the required parameter 'groupOperationParameters' is set
+      if (groupOperationParameters === undefined || groupOperationParameters === null) {
+        throw new Error("Missing the required parameter 'groupOperationParameters' when calling groupOperation");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['APIKey_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = User;
+
+      return this.apiClient.callApi(
+        '/groups/{id}', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Operation on a list of users to a given group
+     * Users join in or withdraw from a given group
+     * @param {Number} id Query by id
+     * @param {module:model/GroupOperationParameters} groupOperationParameters Parameters need to operate groups
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
+     */
+    groupOperation(id, groupOperationParameters) {
+      return this.groupOperationWithHttpInfo(id, groupOperationParameters)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Delete user group by given id
      * Delete group by given id
      * @param {Number} id Query by id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
@@ -941,13 +1365,64 @@ export default class AdminsApi {
     }
 
     /**
-     * Delete approver group by given id
+     * Delete user group by given id
      * Delete group by given id
      * @param {Number} id Query by id
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     removeGroup(id) {
       return this.removeGroupWithHttpInfo(id)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Delete user by given id
+     * Delete user by given id
+     * @param {Number} id Query by id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    removeUserWithHttpInfo(id) {
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling removeUser");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['APIKey_auth'];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/users/{id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Delete user by given id
+     * Delete user by given id
+     * @param {Number} id Query by id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    removeUser(id) {
+      return this.removeUserWithHttpInfo(id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1006,10 +1481,10 @@ export default class AdminsApi {
 
 
     /**
-     * Update an approver group by given id
-     * Update an approver group by given id
+     * Update an user group by given id
+     * Update an user group by given id
      * @param {Number} id Query by id
-     * @param {module:model/Group} group Approver group object that needs to be updated
+     * @param {module:model/Group} group User group object that needs to be updated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
     updateGroupWithHttpInfo(id, group) {
@@ -1049,10 +1524,10 @@ export default class AdminsApi {
     }
 
     /**
-     * Update an approver group by given id
-     * Update an approver group by given id
+     * Update an user group by given id
+     * Update an user group by given id
      * @param {Number} id Query by id
-     * @param {module:model/Group} group Approver group object that needs to be updated
+     * @param {module:model/Group} group User group object that needs to be updated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
     updateGroup(id, group) {
@@ -1064,23 +1539,81 @@ export default class AdminsApi {
 
 
     /**
+     * Update an user by given id
+     * Update an user by given id
+     * @param {Number} id Query by id
+     * @param {module:model/User} user User object that needs to be updated
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    updateUserWithHttpInfo(id, user) {
+      let postBody = user;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling updateUser");
+      }
+
+      // verify the required parameter 'user' is set
+      if (user === undefined || user === null) {
+        throw new Error("Missing the required parameter 'user' when calling updateUser");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['APIKey_auth'];
+      let contentTypes = ['application/json'];
+      let accepts = [];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/users/{id}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Update an user by given id
+     * Update an user by given id
+     * @param {Number} id Query by id
+     * @param {module:model/User} user User object that needs to be updated
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    updateUser(id, user) {
+      return this.updateUserWithHttpInfo(id, user)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Update an approval workflow by given id
      * Update an approval workflow by given id
      * @param {Number} id Query by id
-     * @param {module:model/Workflow} workflow Parameters need to update approval workflow
+     * @param {module:model/WorkflowParameters} workflowParameters Parameters need to update approval workflow
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    updateWorkflowWithHttpInfo(id, workflow) {
-      let postBody = workflow;
+    updateWorkflowWithHttpInfo(id, workflowParameters) {
+      let postBody = workflowParameters;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateWorkflow");
       }
 
-      // verify the required parameter 'workflow' is set
-      if (workflow === undefined || workflow === null) {
-        throw new Error("Missing the required parameter 'workflow' when calling updateWorkflow");
+      // verify the required parameter 'workflowParameters' is set
+      if (workflowParameters === undefined || workflowParameters === null) {
+        throw new Error("Missing the required parameter 'workflowParameters' when calling updateWorkflow");
       }
 
 
@@ -1110,11 +1643,11 @@ export default class AdminsApi {
      * Update an approval workflow by given id
      * Update an approval workflow by given id
      * @param {Number} id Query by id
-     * @param {module:model/Workflow} workflow Parameters need to update approval workflow
+     * @param {module:model/WorkflowParameters} workflowParameters Parameters need to update approval workflow
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    updateWorkflow(id, workflow) {
-      return this.updateWorkflowWithHttpInfo(id, workflow)
+    updateWorkflow(id, workflowParameters) {
+      return this.updateWorkflowWithHttpInfo(id, workflowParameters)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

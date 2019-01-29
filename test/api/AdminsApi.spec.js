@@ -58,10 +58,30 @@
         done();
       });
     });
+    describe('addActionByRequestId', function() {
+      it('should call addActionByRequestId successfully', function(done) {
+        //uncomment below and update the code to test addActionByRequestId
+        //instance.addActionByRequestId(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('addGroup', function() {
       it('should call addGroup successfully', function(done) {
         //uncomment below and update the code to test addGroup
         //instance.addGroup(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('addUser', function() {
+      it('should call addUser successfully', function(done) {
+        //uncomment below and update the code to test addUser
+        //instance.addUser(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -118,10 +138,30 @@
         done();
       });
     });
+    describe('fetchGroupsByUserId', function() {
+      it('should call fetchGroupsByUserId successfully', function(done) {
+        //uncomment below and update the code to test fetchGroupsByUserId
+        //instance.fetchGroupsByUserId(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('fetchRequests', function() {
       it('should call fetchRequests successfully', function(done) {
         //uncomment below and update the code to test fetchRequests
         //instance.fetchRequests(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('fetchRequestsByUserId', function() {
+      it('should call fetchRequestsByUserId successfully', function(done) {
+        //uncomment below and update the code to test fetchRequestsByUserId
+        //instance.fetchRequestsByUserId(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -178,6 +218,36 @@
         done();
       });
     });
+    describe('fetchUserById', function() {
+      it('should call fetchUserById successfully', function(done) {
+        //uncomment below and update the code to test fetchUserById
+        //instance.fetchUserById(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('fetchUsers', function() {
+      it('should call fetchUsers successfully', function(done) {
+        //uncomment below and update the code to test fetchUsers
+        //instance.fetchUsers(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('fetchUsersByGroupId', function() {
+      it('should call fetchUsersByGroupId successfully', function(done) {
+        //uncomment below and update the code to test fetchUsersByGroupId
+        //instance.fetchUsersByGroupId(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('fetchWorkflowById', function() {
       it('should call fetchWorkflowById successfully', function(done) {
         //uncomment below and update the code to test fetchWorkflowById
@@ -208,10 +278,30 @@
         done();
       });
     });
+    describe('groupOperation', function() {
+      it('should call groupOperation successfully', function(done) {
+        //uncomment below and update the code to test groupOperation
+        //instance.groupOperation(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('removeGroup', function() {
       it('should call removeGroup successfully', function(done) {
         //uncomment below and update the code to test removeGroup
         //instance.removeGroup(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('removeUser', function() {
+      it('should call removeUser successfully', function(done) {
+        //uncomment below and update the code to test removeUser
+        //instance.removeUser(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -232,6 +322,16 @@
       it('should call updateGroup successfully', function(done) {
         //uncomment below and update the code to test updateGroup
         //instance.updateGroup(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('updateUser', function() {
+      it('should call updateUser successfully', function(done) {
+        //uncomment below and update the code to test updateUser
+        //instance.updateUser(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

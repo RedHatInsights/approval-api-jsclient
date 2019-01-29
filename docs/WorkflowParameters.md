@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | 
-**description** | **String** |  | [optional] 
-**groupIds** | **[Number]** |  | 
+**name** | **String** | Workflow name | 
+**description** | **String** | Description of workflow | [optional] 
+**groupIds** | **[String]** | Group ids associated with workflow | 
 
 

@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new InsightsServiceApprovalApIs.Action();
+    instance = new InsightsServiceApprovalApIs.User();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,46 +47,40 @@
       object[property] = value;
   }
 
-  describe('Action', function() {
-    it('should create an instance of Action', function() {
-      // uncomment below and update the code to test Action
-      //var instane = new InsightsServiceApprovalApIs.Action();
-      //expect(instance).to.be.a(InsightsServiceApprovalApIs.Action);
+  describe('User', function() {
+    it('should create an instance of User', function() {
+      // uncomment below and update the code to test User
+      //var instane = new InsightsServiceApprovalApIs.User();
+      //expect(instance).to.be.a(InsightsServiceApprovalApIs.User);
     });
 
     it('should have the property id (base name: "id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new InsightsServiceApprovalApIs.Action();
+      //var instane = new InsightsServiceApprovalApIs.User();
       //expect(instance).to.be();
     });
 
-    it('should have the property processedBy (base name: "processed_by")', function() {
-      // uncomment below and update the code to test the property processedBy
-      //var instane = new InsightsServiceApprovalApIs.Action();
+    it('should have the property email (base name: "email")', function() {
+      // uncomment below and update the code to test the property email
+      //var instane = new InsightsServiceApprovalApIs.User();
       //expect(instance).to.be();
     });
 
-    it('should have the property operation (base name: "operation")', function() {
-      // uncomment below and update the code to test the property operation
-      //var instane = new InsightsServiceApprovalApIs.Action();
+    it('should have the property firstName (base name: "first_name")', function() {
+      // uncomment below and update the code to test the property firstName
+      //var instane = new InsightsServiceApprovalApIs.User();
       //expect(instance).to.be();
     });
 
-    it('should have the property stageId (base name: "stage_id")', function() {
-      // uncomment below and update the code to test the property stageId
-      //var instane = new InsightsServiceApprovalApIs.Action();
+    it('should have the property lastName (base name: "last_name")', function() {
+      // uncomment below and update the code to test the property lastName
+      //var instane = new InsightsServiceApprovalApIs.User();
       //expect(instance).to.be();
     });
 
-    it('should have the property comments (base name: "comments")', function() {
-      // uncomment below and update the code to test the property comments
-      //var instane = new InsightsServiceApprovalApIs.Action();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property createdAt (base name: "created_at")', function() {
-      // uncomment below and update the code to test the property createdAt
-      //var instane = new InsightsServiceApprovalApIs.Action();
+    it('should have the property groupIds (base name: "group_ids")', function() {
+      // uncomment below and update the code to test the property groupIds
+      //var instane = new InsightsServiceApprovalApIs.User();
       //expect(instance).to.be();
     });
 

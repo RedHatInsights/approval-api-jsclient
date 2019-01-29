@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost:3000/r/insights/platform/approval*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addRequest**](UsersApi.md#addRequest) | **POST** /workflows/{workflow_id}/requests | Add an approval request by given parameters
-[**fetchRequestById**](UsersApi.md#fetchRequestById) | **GET** /requests/{id} | Return an approval request by given id
-[**fetchRequestStages**](UsersApi.md#fetchRequestStages) | **GET** /requests/{request_id}/stages | Return an array of stages by given request id
+[**addAction**](UsersApi.md#addAction) | **POST** /stages/{stage_id}/actions | Add an action to a given stage
+[**fetchActionById**](UsersApi.md#fetchActionById) | **GET** /actions/{id} | Return an user action by id
+[**fetchActions**](UsersApi.md#fetchActions) | **GET** /actions | Return a list of user actions
 
 
-<a name="addRequest"></a>
-# **addRequest**
-> Request addRequest(workflowId, request)
+<a name="addAction"></a>
+# **addAction**
+> Action addAction(stageId, action)
 
-Add an approval request by given parameters
+Add an action to a given stage
 
-Add an approval request by given parameters
+Add an action to a given stage
 
 ### Example
 ```javascript
@@ -29,9 +29,9 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 //APIKey_auth.apiKeyPrefix = 'Token';
 
 let apiInstance = new InsightsServiceApprovalApIs.UsersApi();
-let workflowId = 56; // Number | Id of workflow
-let request = new InsightsServiceApprovalApIs.Request(); // Request | Parameters need to create a request
-apiInstance.addRequest(workflowId, request).then((data) => {
+let stageId = 56; // Number | Id of stage
+let action = new InsightsServiceApprovalApIs.Action(); // Action | Action object that will be added
+apiInstance.addAction(stageId, action).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -43,12 +43,12 @@ apiInstance.addRequest(workflowId, request).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **workflowId** | **Number**| Id of workflow | 
- **request** | [**Request**](Request.md)| Parameters need to create a request | 
+ **stageId** | **Number**| Id of stage | 
+ **action** | [**Action**](Action.md)| Action object that will be added | 
 
 ### Return type
 
-[**Request**](Request.md)
+[**Action**](Action.md)
 
 ### Authorization
 
@@ -56,16 +56,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="fetchRequestById"></a>
-# **fetchRequestById**
-> Request fetchRequestById(id)
+<a name="fetchActionById"></a>
+# **fetchActionById**
+> Action fetchActionById(id)
 
-Return an approval request by given id
+Return an user action by id
 
-Return an approval request by given id
+Return an user action by id
 
 ### Example
 ```javascript
@@ -80,7 +80,7 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new InsightsServiceApprovalApIs.UsersApi();
 let id = 56; // Number | Query by id
-apiInstance.fetchRequestById(id).then((data) => {
+apiInstance.fetchActionById(id).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Request**](Request.md)
+[**Action**](Action.md)
 
 ### Authorization
 
@@ -107,13 +107,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="fetchRequestStages"></a>
-# **fetchRequestStages**
-> [Stage] fetchRequestStages(requestId)
+<a name="fetchActions"></a>
+# **fetchActions**
+> [Action] fetchActions(opts)
 
-Return an array of stages by given request id
+Return a list of user actions
 
-Return an array of stages by given request id
+Return a list of user actions
 
 ### Example
 ```javascript
@@ -127,8 +127,11 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 //APIKey_auth.apiKeyPrefix = 'Token';
 
 let apiInstance = new InsightsServiceApprovalApIs.UsersApi();
-let requestId = 56; // Number | Id of request
-apiInstance.fetchRequestStages(requestId).then((data) => {
+let opts = {
+  'limit': 20, // Number | How many items to return at one time (max 1000)
+  'offset': 0 // Number | Starting Offset
+};
+apiInstance.fetchActions(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -140,11 +143,12 @@ apiInstance.fetchRequestStages(requestId).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestId** | **Number**| Id of request | 
+ **limit** | **Number**| How many items to return at one time (max 1000) | [optional] [default to 20]
+ **offset** | **Number**| Starting Offset | [optional] [default to 0]
 
 ### Return type
 
-[**[Stage]**](Stage.md)
+[**[Action]**](Action.md)
 
 ### Authorization
 

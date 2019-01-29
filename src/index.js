@@ -14,17 +14,16 @@
 
 import ApiClient from './ApiClient';
 import Action from './model/Action';
-import Decision from './model/Decision';
 import Group from './model/Group';
-import Operation from './model/Operation';
+import GroupOperationParameters from './model/GroupOperationParameters';
 import Request from './model/Request';
 import Stage from './model/Stage';
-import State from './model/State';
 import Template from './model/Template';
+import User from './model/User';
 import Workflow from './model/Workflow';
 import WorkflowParameters from './model/WorkflowParameters';
 import AdminsApi from './api/AdminsApi';
-import ApproversApi from './api/ApproversApi';
+import RequestersApi from './api/RequestersApi';
 import UsersApi from './api/UsersApi';
 
 
@@ -73,22 +72,16 @@ export {
     Action,
 
     /**
-     * The Decision model constructor.
-     * @property {module:model/Decision}
-     */
-    Decision,
-
-    /**
      * The Group model constructor.
      * @property {module:model/Group}
      */
     Group,
 
     /**
-     * The Operation model constructor.
-     * @property {module:model/Operation}
+     * The GroupOperationParameters model constructor.
+     * @property {module:model/GroupOperationParameters}
      */
-    Operation,
+    GroupOperationParameters,
 
     /**
      * The Request model constructor.
@@ -103,16 +96,16 @@ export {
     Stage,
 
     /**
-     * The State model constructor.
-     * @property {module:model/State}
-     */
-    State,
-
-    /**
      * The Template model constructor.
      * @property {module:model/Template}
      */
     Template,
+
+    /**
+     * The User model constructor.
+     * @property {module:model/User}
+     */
+    User,
 
     /**
      * The Workflow model constructor.
@@ -133,10 +126,10 @@ export {
     AdminsApi,
 
     /**
-    * The ApproversApi service constructor.
-    * @property {module:api/ApproversApi}
+    * The RequestersApi service constructor.
+    * @property {module:api/RequestersApi}
     */
-    ApproversApi,
+    RequestersApi,
 
     /**
     * The UsersApi service constructor.

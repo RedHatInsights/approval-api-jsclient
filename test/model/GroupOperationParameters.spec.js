@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new InsightsServiceApprovalApIs.UsersApi();
+    instance = new InsightsServiceApprovalApIs.GroupOperationParameters();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,37 +47,25 @@
       object[property] = value;
   }
 
-  describe('UsersApi', function() {
-    describe('addAction', function() {
-      it('should call addAction successfully', function(done) {
-        //uncomment below and update the code to test addAction
-        //instance.addAction(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+  describe('GroupOperationParameters', function() {
+    it('should create an instance of GroupOperationParameters', function() {
+      // uncomment below and update the code to test GroupOperationParameters
+      //var instane = new InsightsServiceApprovalApIs.GroupOperationParameters();
+      //expect(instance).to.be.a(InsightsServiceApprovalApIs.GroupOperationParameters);
     });
-    describe('fetchActionById', function() {
-      it('should call fetchActionById successfully', function(done) {
-        //uncomment below and update the code to test fetchActionById
-        //instance.fetchActionById(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property operation (base name: "operation")', function() {
+      // uncomment below and update the code to test the property operation
+      //var instane = new InsightsServiceApprovalApIs.GroupOperationParameters();
+      //expect(instance).to.be();
     });
-    describe('fetchActions', function() {
-      it('should call fetchActions successfully', function(done) {
-        //uncomment below and update the code to test fetchActions
-        //instance.fetchActions(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
+
+    it('should have the property parameters (base name: "parameters")', function() {
+      // uncomment below and update the code to test the property parameters
+      //var instane = new InsightsServiceApprovalApIs.GroupOperationParameters();
+      //expect(instance).to.be();
     });
+
   });
 
 }));

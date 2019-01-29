@@ -21,15 +21,13 @@ import ApiClient from '../ApiClient';
 class Group {
     /**
      * Constructs a new <code>Group</code>.
-     * Approver groups. Each group may have one or many approvers. The first response from any approver will be treated as group response.
+     * User groups. Each group may have one or many users. The first response from any user will be treated as group response.
      * @alias module:model/Group
      * @param name {String} Group name
-     * @param contactMethod {String} Contact type. It may be email, slack, team, etc. So far only email is supported.
-     * @param contactSetting {Object} JSON object with contact Setting
      */
-    constructor(name, contactMethod, contactSetting) { 
+    constructor(name) { 
         
-        Group.initialize(this, name, contactMethod, contactSetting);
+        Group.initialize(this, name);
     }
 
     /**
@@ -37,10 +35,8 @@ class Group {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name, contactMethod, contactSetting) { 
+    static initialize(obj, name) { 
         obj['name'] = name;
-        obj['contact_method'] = contactMethod;
-        obj['contact_setting'] = contactSetting;
     }
 
     /**
@@ -60,11 +56,8 @@ class Group {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
-            if (data.hasOwnProperty('contact_method')) {
-                obj['contact_method'] = ApiClient.convertToType(data['contact_method'], 'String');
-            }
-            if (data.hasOwnProperty('contact_setting')) {
-                obj['contact_setting'] = ApiClient.convertToType(data['contact_setting'], Object);
+            if (data.hasOwnProperty('user_ids')) {
+                obj['user_ids'] = ApiClient.convertToType(data['user_ids'], ['String']);
             }
         }
         return obj;
@@ -85,16 +78,9 @@ Group.prototype['id'] = undefined;
 Group.prototype['name'] = undefined;
 
 /**
- * Contact type. It may be email, slack, team, etc. So far only email is supported.
- * @member {String} contact_method
+ * @member {Array.<String>} user_ids
  */
-Group.prototype['contact_method'] = undefined;
-
-/**
- * JSON object with contact Setting
- * @member {Object} contact_setting
- */
-Group.prototype['contact_setting'] = undefined;
+Group.prototype['user_ids'] = undefined;
 
 
 
