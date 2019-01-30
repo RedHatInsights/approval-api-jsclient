@@ -1,5 +1,5 @@
 {
-  "name": "insights_service_approval_ap_is",
+  "name": "approval_api",
   "version": "1.0.0",
   "description": "APIs_to_query_approval_service",
   "license": "Apache 2.0",
