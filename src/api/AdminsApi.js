@@ -13,15 +13,19 @@
 
 
 import ApiClient from "../ApiClient";
-import Action from '../model/Action';
-import Group from '../model/Group';
-import GroupOperationParameters from '../model/GroupOperationParameters';
-import Request from '../model/Request';
-import Stage from '../model/Stage';
-import Template from '../model/Template';
-import User from '../model/User';
+import ActionIn from '../model/ActionIn';
+import ActionOut from '../model/ActionOut';
+import GroupIn from '../model/GroupIn';
+import GroupOperationIn from '../model/GroupOperationIn';
+import GroupOut from '../model/GroupOut';
+import RequestOut from '../model/RequestOut';
+import StageOut from '../model/StageOut';
+import TemplateOut from '../model/TemplateOut';
+import UserIn from '../model/UserIn';
+import UserOut from '../model/UserOut';
 import Workflow from '../model/Workflow';
-import WorkflowParameters from '../model/WorkflowParameters';
+import WorkflowIn from '../model/WorkflowIn';
+import WorkflowOut from '../model/WorkflowOut';
 
 /**
 * Admins service.
@@ -47,20 +51,20 @@ export default class AdminsApi {
      * Add an action to a given stage
      * Add an action to a given stage
      * @param {Number} stageId Id of stage
-     * @param {module:model/Action} action Action object that will be added
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Action} and HTTP response
+     * @param {module:model/ActionIn} actionIn Action object that will be added
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActionOut} and HTTP response
      */
-    addActionWithHttpInfo(stageId, action) {
-      let postBody = action;
+    addActionWithHttpInfo(stageId, actionIn) {
+      let postBody = actionIn;
 
       // verify the required parameter 'stageId' is set
       if (stageId === undefined || stageId === null) {
         throw new Error("Missing the required parameter 'stageId' when calling addAction");
       }
 
-      // verify the required parameter 'action' is set
-      if (action === undefined || action === null) {
-        throw new Error("Missing the required parameter 'action' when calling addAction");
+      // verify the required parameter 'actionIn' is set
+      if (actionIn === undefined || actionIn === null) {
+        throw new Error("Missing the required parameter 'actionIn' when calling addAction");
       }
 
 
@@ -77,7 +81,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Action;
+      let returnType = ActionOut;
 
       return this.apiClient.callApi(
         '/stages/{stage_id}/actions', 'POST',
@@ -90,11 +94,11 @@ export default class AdminsApi {
      * Add an action to a given stage
      * Add an action to a given stage
      * @param {Number} stageId Id of stage
-     * @param {module:model/Action} action Action object that will be added
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Action}
+     * @param {module:model/ActionIn} actionIn Action object that will be added
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActionOut}
      */
-    addAction(stageId, action) {
-      return this.addActionWithHttpInfo(stageId, action)
+    addAction(stageId, actionIn) {
+      return this.addActionWithHttpInfo(stageId, actionIn)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -105,20 +109,20 @@ export default class AdminsApi {
      * Add an action to a given request
      * Add an action to a given request
      * @param {Number} requestId Id of request
-     * @param {module:model/Action} action Action object that will be added
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Action} and HTTP response
+     * @param {module:model/ActionIn} actionIn Action object that will be added
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActionOut} and HTTP response
      */
-    addActionByRequestIdWithHttpInfo(requestId, action) {
-      let postBody = action;
+    addActionByRequestIdWithHttpInfo(requestId, actionIn) {
+      let postBody = actionIn;
 
       // verify the required parameter 'requestId' is set
       if (requestId === undefined || requestId === null) {
         throw new Error("Missing the required parameter 'requestId' when calling addActionByRequestId");
       }
 
-      // verify the required parameter 'action' is set
-      if (action === undefined || action === null) {
-        throw new Error("Missing the required parameter 'action' when calling addActionByRequestId");
+      // verify the required parameter 'actionIn' is set
+      if (actionIn === undefined || actionIn === null) {
+        throw new Error("Missing the required parameter 'actionIn' when calling addActionByRequestId");
       }
 
 
@@ -135,7 +139,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Action;
+      let returnType = ActionOut;
 
       return this.apiClient.callApi(
         '/requests/{request_id}/actions', 'POST',
@@ -148,11 +152,11 @@ export default class AdminsApi {
      * Add an action to a given request
      * Add an action to a given request
      * @param {Number} requestId Id of request
-     * @param {module:model/Action} action Action object that will be added
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Action}
+     * @param {module:model/ActionIn} actionIn Action object that will be added
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActionOut}
      */
-    addActionByRequestId(requestId, action) {
-      return this.addActionByRequestIdWithHttpInfo(requestId, action)
+    addActionByRequestId(requestId, actionIn) {
+      return this.addActionByRequestIdWithHttpInfo(requestId, actionIn)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -162,15 +166,15 @@ export default class AdminsApi {
     /**
      * Add a new user group by given parameters
      * Add a new user group by given parameters
-     * @param {module:model/Group} group Parameters need to create user group
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Group} and HTTP response
+     * @param {module:model/GroupIn} groupIn Parameters need to create user group
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GroupOut} and HTTP response
      */
-    addGroupWithHttpInfo(group) {
-      let postBody = group;
+    addGroupWithHttpInfo(groupIn) {
+      let postBody = groupIn;
 
-      // verify the required parameter 'group' is set
-      if (group === undefined || group === null) {
-        throw new Error("Missing the required parameter 'group' when calling addGroup");
+      // verify the required parameter 'groupIn' is set
+      if (groupIn === undefined || groupIn === null) {
+        throw new Error("Missing the required parameter 'groupIn' when calling addGroup");
       }
 
 
@@ -186,7 +190,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = Group;
+      let returnType = GroupOut;
 
       return this.apiClient.callApi(
         '/groups', 'POST',
@@ -198,11 +202,11 @@ export default class AdminsApi {
     /**
      * Add a new user group by given parameters
      * Add a new user group by given parameters
-     * @param {module:model/Group} group Parameters need to create user group
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Group}
+     * @param {module:model/GroupIn} groupIn Parameters need to create user group
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GroupOut}
      */
-    addGroup(group) {
-      return this.addGroupWithHttpInfo(group)
+    addGroup(groupIn) {
+      return this.addGroupWithHttpInfo(groupIn)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -212,15 +216,15 @@ export default class AdminsApi {
     /**
      * Add a new user by given parameters
      * Add a new user by given parameters
-     * @param {module:model/User} user Parameters need to create user
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
+     * @param {module:model/UserIn} userIn Parameters need to create user
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserOut} and HTTP response
      */
-    addUserWithHttpInfo(user) {
-      let postBody = user;
+    addUserWithHttpInfo(userIn) {
+      let postBody = userIn;
 
-      // verify the required parameter 'user' is set
-      if (user === undefined || user === null) {
-        throw new Error("Missing the required parameter 'user' when calling addUser");
+      // verify the required parameter 'userIn' is set
+      if (userIn === undefined || userIn === null) {
+        throw new Error("Missing the required parameter 'userIn' when calling addUser");
       }
 
 
@@ -236,7 +240,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = User;
+      let returnType = UserOut;
 
       return this.apiClient.callApi(
         '/users', 'POST',
@@ -248,11 +252,11 @@ export default class AdminsApi {
     /**
      * Add a new user by given parameters
      * Add a new user by given parameters
-     * @param {module:model/User} user Parameters need to create user
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
+     * @param {module:model/UserIn} userIn Parameters need to create user
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserOut}
      */
-    addUser(user) {
-      return this.addUserWithHttpInfo(user)
+    addUser(userIn) {
+      return this.addUserWithHttpInfo(userIn)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -263,20 +267,20 @@ export default class AdminsApi {
      * Add a workflow by given template id
      * Add a workflow by given template id
      * @param {Number} templateId Id of template
-     * @param {module:model/WorkflowParameters} workflowParameters Parameters need to create workflow
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Workflow} and HTTP response
+     * @param {module:model/WorkflowIn} workflowIn Parameters need to create workflow
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/WorkflowOut} and HTTP response
      */
-    addWorkflowWithHttpInfo(templateId, workflowParameters) {
-      let postBody = workflowParameters;
+    addWorkflowWithHttpInfo(templateId, workflowIn) {
+      let postBody = workflowIn;
 
       // verify the required parameter 'templateId' is set
       if (templateId === undefined || templateId === null) {
         throw new Error("Missing the required parameter 'templateId' when calling addWorkflow");
       }
 
-      // verify the required parameter 'workflowParameters' is set
-      if (workflowParameters === undefined || workflowParameters === null) {
-        throw new Error("Missing the required parameter 'workflowParameters' when calling addWorkflow");
+      // verify the required parameter 'workflowIn' is set
+      if (workflowIn === undefined || workflowIn === null) {
+        throw new Error("Missing the required parameter 'workflowIn' when calling addWorkflow");
       }
 
 
@@ -293,7 +297,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = Workflow;
+      let returnType = WorkflowOut;
 
       return this.apiClient.callApi(
         '/templates/{template_id}/workflows', 'POST',
@@ -306,11 +310,11 @@ export default class AdminsApi {
      * Add a workflow by given template id
      * Add a workflow by given template id
      * @param {Number} templateId Id of template
-     * @param {module:model/WorkflowParameters} workflowParameters Parameters need to create workflow
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Workflow}
+     * @param {module:model/WorkflowIn} workflowIn Parameters need to create workflow
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WorkflowOut}
      */
-    addWorkflow(templateId, workflowParameters) {
-      return this.addWorkflowWithHttpInfo(templateId, workflowParameters)
+    addWorkflow(templateId, workflowIn) {
+      return this.addWorkflowWithHttpInfo(templateId, workflowIn)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -321,7 +325,7 @@ export default class AdminsApi {
      * Return an user action by id
      * Return an user action by id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Action} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActionOut} and HTTP response
      */
     fetchActionByIdWithHttpInfo(id) {
       let postBody = null;
@@ -345,7 +349,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = Action;
+      let returnType = ActionOut;
 
       return this.apiClient.callApi(
         '/actions/{id}', 'GET',
@@ -358,7 +362,7 @@ export default class AdminsApi {
      * Return an user action by id
      * Return an user action by id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Action}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActionOut}
      */
     fetchActionById(id) {
       return this.fetchActionByIdWithHttpInfo(id)
@@ -374,7 +378,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Action>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ActionOut>} and HTTP response
      */
     fetchActionsWithHttpInfo(opts) {
       opts = opts || {};
@@ -395,7 +399,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [Action];
+      let returnType = [ActionOut];
 
       return this.apiClient.callApi(
         '/actions', 'GET',
@@ -410,7 +414,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Action>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ActionOut>}
      */
     fetchActions(opts) {
       return this.fetchActionsWithHttpInfo(opts)
@@ -424,7 +428,7 @@ export default class AdminsApi {
      * Return user group by given id
      * Return user group by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Group} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GroupOut} and HTTP response
      */
     fetchGroupByIdWithHttpInfo(id) {
       let postBody = null;
@@ -448,7 +452,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = Group;
+      let returnType = GroupOut;
 
       return this.apiClient.callApi(
         '/groups/{id}', 'GET',
@@ -461,7 +465,7 @@ export default class AdminsApi {
      * Return user group by given id
      * Return user group by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Group}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GroupOut}
      */
     fetchGroupById(id) {
       return this.fetchGroupByIdWithHttpInfo(id)
@@ -477,7 +481,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Group>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/GroupOut>} and HTTP response
      */
     fetchGroupsWithHttpInfo(opts) {
       opts = opts || {};
@@ -498,7 +502,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [Group];
+      let returnType = [GroupOut];
 
       return this.apiClient.callApi(
         '/groups', 'GET',
@@ -513,7 +517,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Group>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/GroupOut>}
      */
     fetchGroups(opts) {
       return this.fetchGroupsWithHttpInfo(opts)
@@ -527,7 +531,7 @@ export default class AdminsApi {
      * Return associated groups by given user id
      * Return groups by given user id
      * @param {Number} userId Id of user
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Group>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/GroupOut>} and HTTP response
      */
     fetchGroupsByUserIdWithHttpInfo(userId) {
       let postBody = null;
@@ -551,7 +555,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [Group];
+      let returnType = [GroupOut];
 
       return this.apiClient.callApi(
         '/users/{user_id}/groups', 'GET',
@@ -564,7 +568,7 @@ export default class AdminsApi {
      * Return associated groups by given user id
      * Return groups by given user id
      * @param {Number} userId Id of user
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Group>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/GroupOut>}
      */
     fetchGroupsByUserId(userId) {
       return this.fetchGroupsByUserIdWithHttpInfo(userId)
@@ -583,7 +587,7 @@ export default class AdminsApi {
      * @param {String} opts.requester Fetch item by given requester
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Request>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/RequestOut>} and HTTP response
      */
     fetchRequestsWithHttpInfo(opts) {
       opts = opts || {};
@@ -607,7 +611,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [Request];
+      let returnType = [RequestOut];
 
       return this.apiClient.callApi(
         '/requests', 'GET',
@@ -625,7 +629,7 @@ export default class AdminsApi {
      * @param {String} opts.requester Fetch item by given requester
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Request>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/RequestOut>}
      */
     fetchRequests(opts) {
       return this.fetchRequestsWithHttpInfo(opts)
@@ -639,7 +643,7 @@ export default class AdminsApi {
      * Return associated requests by given user id
      * Return requests by given user id
      * @param {Number} userId Id of user
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Request>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/RequestOut>} and HTTP response
      */
     fetchRequestsByUserIdWithHttpInfo(userId) {
       let postBody = null;
@@ -663,7 +667,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [Request];
+      let returnType = [RequestOut];
 
       return this.apiClient.callApi(
         '/users/{user_id}/requests', 'GET',
@@ -676,7 +680,7 @@ export default class AdminsApi {
      * Return associated requests by given user id
      * Return requests by given user id
      * @param {Number} userId Id of user
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Request>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/RequestOut>}
      */
     fetchRequestsByUserId(userId) {
       return this.fetchRequestsByUserIdWithHttpInfo(userId)
@@ -690,7 +694,7 @@ export default class AdminsApi {
      * Return an approval stage by given id
      * Return an approval stage by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Stage} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/StageOut} and HTTP response
      */
     fetchStageByIdWithHttpInfo(id) {
       let postBody = null;
@@ -714,7 +718,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = Stage;
+      let returnType = StageOut;
 
       return this.apiClient.callApi(
         '/stages/{id}', 'GET',
@@ -727,7 +731,7 @@ export default class AdminsApi {
      * Return an approval stage by given id
      * Return an approval stage by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Stage}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/StageOut}
      */
     fetchStageById(id) {
       return this.fetchStageByIdWithHttpInfo(id)
@@ -743,7 +747,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Stage>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/StageOut>} and HTTP response
      */
     fetchStagesWithHttpInfo(opts) {
       opts = opts || {};
@@ -764,7 +768,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = [Stage];
+      let returnType = [StageOut];
 
       return this.apiClient.callApi(
         '/stages', 'GET',
@@ -779,7 +783,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Stage>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/StageOut>}
      */
     fetchStages(opts) {
       return this.fetchStagesWithHttpInfo(opts)
@@ -793,7 +797,7 @@ export default class AdminsApi {
      * Return a template by given id
      * Return a template by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Template} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/TemplateOut} and HTTP response
      */
     fetchTemplateByIdWithHttpInfo(id) {
       let postBody = null;
@@ -817,7 +821,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = Template;
+      let returnType = TemplateOut;
 
       return this.apiClient.callApi(
         '/templates/{id}', 'GET',
@@ -830,7 +834,7 @@ export default class AdminsApi {
      * Return a template by given id
      * Return a template by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Template}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/TemplateOut}
      */
     fetchTemplateById(id) {
       return this.fetchTemplateByIdWithHttpInfo(id)
@@ -847,7 +851,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Workflow>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/WorkflowOut>} and HTTP response
      */
     fetchTemplateWorkflowsWithHttpInfo(templateId, opts) {
       opts = opts || {};
@@ -874,7 +878,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [Workflow];
+      let returnType = [WorkflowOut];
 
       return this.apiClient.callApi(
         '/templates/{template_id}/workflows', 'GET',
@@ -890,7 +894,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Workflow>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/WorkflowOut>}
      */
     fetchTemplateWorkflows(templateId, opts) {
       return this.fetchTemplateWorkflowsWithHttpInfo(templateId, opts)
@@ -906,7 +910,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Template>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/TemplateOut>} and HTTP response
      */
     fetchTemplatesWithHttpInfo(opts) {
       opts = opts || {};
@@ -927,7 +931,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [Template];
+      let returnType = [TemplateOut];
 
       return this.apiClient.callApi(
         '/templates', 'GET',
@@ -942,7 +946,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Template>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/TemplateOut>}
      */
     fetchTemplates(opts) {
       return this.fetchTemplatesWithHttpInfo(opts)
@@ -956,7 +960,7 @@ export default class AdminsApi {
      * Return user by given id
      * Return user by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/UserOut} and HTTP response
      */
     fetchUserByIdWithHttpInfo(id) {
       let postBody = null;
@@ -980,7 +984,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = User;
+      let returnType = UserOut;
 
       return this.apiClient.callApi(
         '/users/{id}', 'GET',
@@ -993,7 +997,7 @@ export default class AdminsApi {
      * Return user by given id
      * Return user by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/UserOut}
      */
     fetchUserById(id) {
       return this.fetchUserByIdWithHttpInfo(id)
@@ -1009,7 +1013,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/User>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/UserOut>} and HTTP response
      */
     fetchUsersWithHttpInfo(opts) {
       opts = opts || {};
@@ -1030,7 +1034,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [User];
+      let returnType = [UserOut];
 
       return this.apiClient.callApi(
         '/users', 'GET',
@@ -1045,7 +1049,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/User>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/UserOut>}
      */
     fetchUsers(opts) {
       return this.fetchUsersWithHttpInfo(opts)
@@ -1059,7 +1063,7 @@ export default class AdminsApi {
      * Return associated users by given group id
      * Return users by given group id
      * @param {Number} groupId Id of group
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/User>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/UserOut>} and HTTP response
      */
     fetchUsersByGroupIdWithHttpInfo(groupId) {
       let postBody = null;
@@ -1083,7 +1087,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [User];
+      let returnType = [UserOut];
 
       return this.apiClient.callApi(
         '/groups/{group_id}/users', 'GET',
@@ -1096,7 +1100,7 @@ export default class AdminsApi {
      * Return associated users by given group id
      * Return users by given group id
      * @param {Number} groupId Id of group
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/User>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/UserOut>}
      */
     fetchUsersByGroupId(groupId) {
       return this.fetchUsersByGroupIdWithHttpInfo(groupId)
@@ -1110,7 +1114,7 @@ export default class AdminsApi {
      * Return an approval workflow by given id
      * Return an approval workflow by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Workflow} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/WorkflowOut} and HTTP response
      */
     fetchWorkflowByIdWithHttpInfo(id) {
       let postBody = null;
@@ -1134,7 +1138,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = Workflow;
+      let returnType = WorkflowOut;
 
       return this.apiClient.callApi(
         '/workflows/{id}', 'GET',
@@ -1147,7 +1151,7 @@ export default class AdminsApi {
      * Return an approval workflow by given id
      * Return an approval workflow by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Workflow}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/WorkflowOut}
      */
     fetchWorkflowById(id) {
       return this.fetchWorkflowByIdWithHttpInfo(id)
@@ -1164,7 +1168,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Request>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/RequestOut>} and HTTP response
      */
     fetchWorkflowRequestsWithHttpInfo(workflowId, opts) {
       opts = opts || {};
@@ -1191,7 +1195,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [Request];
+      let returnType = [RequestOut];
 
       return this.apiClient.callApi(
         '/workflows/{workflow_id}/requests', 'GET',
@@ -1207,7 +1211,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Request>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/RequestOut>}
      */
     fetchWorkflowRequests(workflowId, opts) {
       return this.fetchWorkflowRequestsWithHttpInfo(workflowId, opts)
@@ -1223,7 +1227,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Workflow>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/WorkflowOut>} and HTTP response
      */
     fetchWorkflowsWithHttpInfo(opts) {
       opts = opts || {};
@@ -1244,7 +1248,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = [Workflow];
+      let returnType = [WorkflowOut];
 
       return this.apiClient.callApi(
         '/workflows', 'GET',
@@ -1259,7 +1263,7 @@ export default class AdminsApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Workflow>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/WorkflowOut>}
      */
     fetchWorkflows(opts) {
       return this.fetchWorkflowsWithHttpInfo(opts)
@@ -1273,20 +1277,20 @@ export default class AdminsApi {
      * Operation on a list of users to a given group
      * Users join in or withdraw from a given group
      * @param {Number} id Query by id
-     * @param {module:model/GroupOperationParameters} groupOperationParameters Parameters need to operate groups
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/User} and HTTP response
+     * @param {module:model/GroupOperationIn} groupOperationIn Parameters need to operate groups
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/GroupOut} and HTTP response
      */
-    groupOperationWithHttpInfo(id, groupOperationParameters) {
-      let postBody = groupOperationParameters;
+    groupOperationWithHttpInfo(id, groupOperationIn) {
+      let postBody = groupOperationIn;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling groupOperation");
       }
 
-      // verify the required parameter 'groupOperationParameters' is set
-      if (groupOperationParameters === undefined || groupOperationParameters === null) {
-        throw new Error("Missing the required parameter 'groupOperationParameters' when calling groupOperation");
+      // verify the required parameter 'groupOperationIn' is set
+      if (groupOperationIn === undefined || groupOperationIn === null) {
+        throw new Error("Missing the required parameter 'groupOperationIn' when calling groupOperation");
       }
 
 
@@ -1303,7 +1307,7 @@ export default class AdminsApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = User;
+      let returnType = GroupOut;
 
       return this.apiClient.callApi(
         '/groups/{id}', 'POST',
@@ -1316,11 +1320,11 @@ export default class AdminsApi {
      * Operation on a list of users to a given group
      * Users join in or withdraw from a given group
      * @param {Number} id Query by id
-     * @param {module:model/GroupOperationParameters} groupOperationParameters Parameters need to operate groups
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/User}
+     * @param {module:model/GroupOperationIn} groupOperationIn Parameters need to operate groups
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/GroupOut}
      */
-    groupOperation(id, groupOperationParameters) {
-      return this.groupOperationWithHttpInfo(id, groupOperationParameters)
+    groupOperation(id, groupOperationIn) {
+      return this.groupOperationWithHttpInfo(id, groupOperationIn)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1484,20 +1488,20 @@ export default class AdminsApi {
      * Update an user group by given id
      * Update an user group by given id
      * @param {Number} id Query by id
-     * @param {module:model/Group} group User group object that needs to be updated
+     * @param {module:model/GroupIn} groupIn User group object that needs to be updated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    updateGroupWithHttpInfo(id, group) {
-      let postBody = group;
+    updateGroupWithHttpInfo(id, groupIn) {
+      let postBody = groupIn;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateGroup");
       }
 
-      // verify the required parameter 'group' is set
-      if (group === undefined || group === null) {
-        throw new Error("Missing the required parameter 'group' when calling updateGroup");
+      // verify the required parameter 'groupIn' is set
+      if (groupIn === undefined || groupIn === null) {
+        throw new Error("Missing the required parameter 'groupIn' when calling updateGroup");
       }
 
 
@@ -1527,11 +1531,11 @@ export default class AdminsApi {
      * Update an user group by given id
      * Update an user group by given id
      * @param {Number} id Query by id
-     * @param {module:model/Group} group User group object that needs to be updated
+     * @param {module:model/GroupIn} groupIn User group object that needs to be updated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    updateGroup(id, group) {
-      return this.updateGroupWithHttpInfo(id, group)
+    updateGroup(id, groupIn) {
+      return this.updateGroupWithHttpInfo(id, groupIn)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1542,20 +1546,20 @@ export default class AdminsApi {
      * Update an user by given id
      * Update an user by given id
      * @param {Number} id Query by id
-     * @param {module:model/User} user User object that needs to be updated
+     * @param {module:model/UserIn} userIn User object that needs to be updated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    updateUserWithHttpInfo(id, user) {
-      let postBody = user;
+    updateUserWithHttpInfo(id, userIn) {
+      let postBody = userIn;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateUser");
       }
 
-      // verify the required parameter 'user' is set
-      if (user === undefined || user === null) {
-        throw new Error("Missing the required parameter 'user' when calling updateUser");
+      // verify the required parameter 'userIn' is set
+      if (userIn === undefined || userIn === null) {
+        throw new Error("Missing the required parameter 'userIn' when calling updateUser");
       }
 
 
@@ -1585,11 +1589,11 @@ export default class AdminsApi {
      * Update an user by given id
      * Update an user by given id
      * @param {Number} id Query by id
-     * @param {module:model/User} user User object that needs to be updated
+     * @param {module:model/UserIn} userIn User object that needs to be updated
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    updateUser(id, user) {
-      return this.updateUserWithHttpInfo(id, user)
+    updateUser(id, userIn) {
+      return this.updateUserWithHttpInfo(id, userIn)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -1600,20 +1604,20 @@ export default class AdminsApi {
      * Update an approval workflow by given id
      * Update an approval workflow by given id
      * @param {Number} id Query by id
-     * @param {module:model/WorkflowParameters} workflowParameters Parameters need to update approval workflow
+     * @param {module:model/WorkflowIn} workflowIn Parameters need to update approval workflow
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    updateWorkflowWithHttpInfo(id, workflowParameters) {
-      let postBody = workflowParameters;
+    updateWorkflowWithHttpInfo(id, workflowIn) {
+      let postBody = workflowIn;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateWorkflow");
       }
 
-      // verify the required parameter 'workflowParameters' is set
-      if (workflowParameters === undefined || workflowParameters === null) {
-        throw new Error("Missing the required parameter 'workflowParameters' when calling updateWorkflow");
+      // verify the required parameter 'workflowIn' is set
+      if (workflowIn === undefined || workflowIn === null) {
+        throw new Error("Missing the required parameter 'workflowIn' when calling updateWorkflow");
       }
 
 
@@ -1643,11 +1647,11 @@ export default class AdminsApi {
      * Update an approval workflow by given id
      * Update an approval workflow by given id
      * @param {Number} id Query by id
-     * @param {module:model/WorkflowParameters} workflowParameters Parameters need to update approval workflow
+     * @param {module:model/WorkflowIn} workflowIn Parameters need to update approval workflow
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
-    updateWorkflow(id, workflowParameters) {
-      return this.updateWorkflowWithHttpInfo(id, workflowParameters)
+    updateWorkflow(id, workflowIn) {
+      return this.updateWorkflowWithHttpInfo(id, workflowIn)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

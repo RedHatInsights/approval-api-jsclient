@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="addAction"></a>
 # **addAction**
-> Action addAction(stageId, action)
+> ActionOut addAction(stageId, actionIn)
 
 Add an action to a given stage
 
@@ -30,8 +30,8 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new InsightsServiceApprovalApIs.UsersApi();
 let stageId = 56; // Number | Id of stage
-let action = new InsightsServiceApprovalApIs.Action(); // Action | Action object that will be added
-apiInstance.addAction(stageId, action).then((data) => {
+let actionIn = new InsightsServiceApprovalApIs.ActionIn(); // ActionIn | Action object that will be added
+apiInstance.addAction(stageId, actionIn).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -44,11 +44,11 @@ apiInstance.addAction(stageId, action).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **stageId** | **Number**| Id of stage | 
- **action** | [**Action**](Action.md)| Action object that will be added | 
+ **actionIn** | [**ActionIn**](ActionIn.md)| Action object that will be added | 
 
 ### Return type
 
-[**Action**](Action.md)
+[**ActionOut**](ActionOut.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchActionById"></a>
 # **fetchActionById**
-> Action fetchActionById(id)
+> ActionOut fetchActionById(id)
 
 Return an user action by id
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Action**](Action.md)
+[**ActionOut**](ActionOut.md)
 
 ### Authorization
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchActions"></a>
 # **fetchActions**
-> [Action] fetchActions(opts)
+> [ActionOut] fetchActions(opts)
 
 Return a list of user actions
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Action]**](Action.md)
+[**[ActionOut]**](ActionOut.md)
 
 ### Authorization
 

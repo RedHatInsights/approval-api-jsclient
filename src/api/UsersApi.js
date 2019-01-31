@@ -13,7 +13,8 @@
 
 
 import ApiClient from "../ApiClient";
-import Action from '../model/Action';
+import ActionIn from '../model/ActionIn';
+import ActionOut from '../model/ActionOut';
 
 /**
 * Users service.
@@ -39,20 +40,20 @@ export default class UsersApi {
      * Add an action to a given stage
      * Add an action to a given stage
      * @param {Number} stageId Id of stage
-     * @param {module:model/Action} action Action object that will be added
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Action} and HTTP response
+     * @param {module:model/ActionIn} actionIn Action object that will be added
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActionOut} and HTTP response
      */
-    addActionWithHttpInfo(stageId, action) {
-      let postBody = action;
+    addActionWithHttpInfo(stageId, actionIn) {
+      let postBody = actionIn;
 
       // verify the required parameter 'stageId' is set
       if (stageId === undefined || stageId === null) {
         throw new Error("Missing the required parameter 'stageId' when calling addAction");
       }
 
-      // verify the required parameter 'action' is set
-      if (action === undefined || action === null) {
-        throw new Error("Missing the required parameter 'action' when calling addAction");
+      // verify the required parameter 'actionIn' is set
+      if (actionIn === undefined || actionIn === null) {
+        throw new Error("Missing the required parameter 'actionIn' when calling addAction");
       }
 
 
@@ -69,7 +70,7 @@ export default class UsersApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Action;
+      let returnType = ActionOut;
 
       return this.apiClient.callApi(
         '/stages/{stage_id}/actions', 'POST',
@@ -82,11 +83,11 @@ export default class UsersApi {
      * Add an action to a given stage
      * Add an action to a given stage
      * @param {Number} stageId Id of stage
-     * @param {module:model/Action} action Action object that will be added
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Action}
+     * @param {module:model/ActionIn} actionIn Action object that will be added
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActionOut}
      */
-    addAction(stageId, action) {
-      return this.addActionWithHttpInfo(stageId, action)
+    addAction(stageId, actionIn) {
+      return this.addActionWithHttpInfo(stageId, actionIn)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -97,7 +98,7 @@ export default class UsersApi {
      * Return an user action by id
      * Return an user action by id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Action} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ActionOut} and HTTP response
      */
     fetchActionByIdWithHttpInfo(id) {
       let postBody = null;
@@ -121,7 +122,7 @@ export default class UsersApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = Action;
+      let returnType = ActionOut;
 
       return this.apiClient.callApi(
         '/actions/{id}', 'GET',
@@ -134,7 +135,7 @@ export default class UsersApi {
      * Return an user action by id
      * Return an user action by id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Action}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ActionOut}
      */
     fetchActionById(id) {
       return this.fetchActionByIdWithHttpInfo(id)
@@ -150,7 +151,7 @@ export default class UsersApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Action>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ActionOut>} and HTTP response
      */
     fetchActionsWithHttpInfo(opts) {
       opts = opts || {};
@@ -171,7 +172,7 @@ export default class UsersApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [Action];
+      let returnType = [ActionOut];
 
       return this.apiClient.callApi(
         '/actions', 'GET',
@@ -186,7 +187,7 @@ export default class UsersApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
      * @param {Number} opts.offset Starting Offset (default to 0)
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Action>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ActionOut>}
      */
     fetchActions(opts) {
       return this.fetchActionsWithHttpInfo(opts)

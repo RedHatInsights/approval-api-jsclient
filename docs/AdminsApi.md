@@ -38,7 +38,7 @@ Method | HTTP request | Description
 
 <a name="addAction"></a>
 # **addAction**
-> Action addAction(stageId, action)
+> ActionOut addAction(stageId, actionIn)
 
 Add an action to a given stage
 
@@ -57,8 +57,8 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
 let stageId = 56; // Number | Id of stage
-let action = new InsightsServiceApprovalApIs.Action(); // Action | Action object that will be added
-apiInstance.addAction(stageId, action).then((data) => {
+let actionIn = new InsightsServiceApprovalApIs.ActionIn(); // ActionIn | Action object that will be added
+apiInstance.addAction(stageId, actionIn).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -71,11 +71,11 @@ apiInstance.addAction(stageId, action).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **stageId** | **Number**| Id of stage | 
- **action** | [**Action**](Action.md)| Action object that will be added | 
+ **actionIn** | [**ActionIn**](ActionIn.md)| Action object that will be added | 
 
 ### Return type
 
-[**Action**](Action.md)
+[**ActionOut**](ActionOut.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 <a name="addActionByRequestId"></a>
 # **addActionByRequestId**
-> Action addActionByRequestId(requestId, action)
+> ActionOut addActionByRequestId(requestId, actionIn)
 
 Add an action to a given request
 
@@ -107,8 +107,8 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
 let requestId = 56; // Number | Id of request
-let action = new InsightsServiceApprovalApIs.Action(); // Action | Action object that will be added
-apiInstance.addActionByRequestId(requestId, action).then((data) => {
+let actionIn = new InsightsServiceApprovalApIs.ActionIn(); // ActionIn | Action object that will be added
+apiInstance.addActionByRequestId(requestId, actionIn).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -121,11 +121,11 @@ apiInstance.addActionByRequestId(requestId, action).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestId** | **Number**| Id of request | 
- **action** | [**Action**](Action.md)| Action object that will be added | 
+ **actionIn** | [**ActionIn**](ActionIn.md)| Action object that will be added | 
 
 ### Return type
 
-[**Action**](Action.md)
+[**ActionOut**](ActionOut.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 <a name="addGroup"></a>
 # **addGroup**
-> Group addGroup(group)
+> GroupOut addGroup(groupIn)
 
 Add a new user group by given parameters
 
@@ -156,8 +156,8 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 //APIKey_auth.apiKeyPrefix = 'Token';
 
 let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
-let group = new InsightsServiceApprovalApIs.Group(); // Group | Parameters need to create user group
-apiInstance.addGroup(group).then((data) => {
+let groupIn = new InsightsServiceApprovalApIs.GroupIn(); // GroupIn | Parameters need to create user group
+apiInstance.addGroup(groupIn).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -169,11 +169,11 @@ apiInstance.addGroup(group).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group** | [**Group**](Group.md)| Parameters need to create user group | 
+ **groupIn** | [**GroupIn**](GroupIn.md)| Parameters need to create user group | 
 
 ### Return type
 
-[**Group**](Group.md)
+[**GroupOut**](GroupOut.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 <a name="addUser"></a>
 # **addUser**
-> User addUser(user)
+> UserOut addUser(userIn)
 
 Add a new user by given parameters
 
@@ -204,8 +204,8 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 //APIKey_auth.apiKeyPrefix = 'Token';
 
 let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
-let user = new InsightsServiceApprovalApIs.User(); // User | Parameters need to create user
-apiInstance.addUser(user).then((data) => {
+let userIn = new InsightsServiceApprovalApIs.UserIn(); // UserIn | Parameters need to create user
+apiInstance.addUser(userIn).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -217,11 +217,11 @@ apiInstance.addUser(user).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**User**](User.md)| Parameters need to create user | 
+ **userIn** | [**UserIn**](UserIn.md)| Parameters need to create user | 
 
 ### Return type
 
-[**User**](User.md)
+[**UserOut**](UserOut.md)
 
 ### Authorization
 
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 <a name="addWorkflow"></a>
 # **addWorkflow**
-> Workflow addWorkflow(templateId, workflowParameters)
+> WorkflowOut addWorkflow(templateId, workflowIn)
 
 Add a workflow by given template id
 
@@ -253,8 +253,8 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
 let templateId = 56; // Number | Id of template
-let workflowParameters = new InsightsServiceApprovalApIs.WorkflowParameters(); // WorkflowParameters | Parameters need to create workflow
-apiInstance.addWorkflow(templateId, workflowParameters).then((data) => {
+let workflowIn = new InsightsServiceApprovalApIs.WorkflowIn(); // WorkflowIn | Parameters need to create workflow
+apiInstance.addWorkflow(templateId, workflowIn).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -267,11 +267,11 @@ apiInstance.addWorkflow(templateId, workflowParameters).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **Number**| Id of template | 
- **workflowParameters** | [**WorkflowParameters**](WorkflowParameters.md)| Parameters need to create workflow | 
+ **workflowIn** | [**WorkflowIn**](WorkflowIn.md)| Parameters need to create workflow | 
 
 ### Return type
 
-[**Workflow**](Workflow.md)
+[**WorkflowOut**](WorkflowOut.md)
 
 ### Authorization
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchActionById"></a>
 # **fetchActionById**
-> Action fetchActionById(id)
+> ActionOut fetchActionById(id)
 
 Return an user action by id
 
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Action**](Action.md)
+[**ActionOut**](ActionOut.md)
 
 ### Authorization
 
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchActions"></a>
 # **fetchActions**
-> [Action] fetchActions(opts)
+> [ActionOut] fetchActions(opts)
 
 Return a list of user actions
 
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Action]**](Action.md)
+[**[ActionOut]**](ActionOut.md)
 
 ### Authorization
 
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchGroupById"></a>
 # **fetchGroupById**
-> Group fetchGroupById(id)
+> GroupOut fetchGroupById(id)
 
 Return user group by given id
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Group**](Group.md)
+[**GroupOut**](GroupOut.md)
 
 ### Authorization
 
@@ -432,7 +432,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchGroups"></a>
 # **fetchGroups**
-> [Group] fetchGroups(opts)
+> [GroupOut] fetchGroups(opts)
 
 Return all user groups
 
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Group]**](Group.md)
+[**[GroupOut]**](GroupOut.md)
 
 ### Authorization
 
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchGroupsByUserId"></a>
 # **fetchGroupsByUserId**
-> [Group] fetchGroupsByUserId(userId)
+> [GroupOut] fetchGroupsByUserId(userId)
 
 Return associated groups by given user id
 
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Group]**](Group.md)
+[**[GroupOut]**](GroupOut.md)
 
 ### Authorization
 
@@ -532,7 +532,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchRequests"></a>
 # **fetchRequests**
-> [Request] fetchRequests(opts)
+> [RequestOut] fetchRequests(opts)
 
 Return an array of approval requests
 
@@ -577,7 +577,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Request]**](Request.md)
+[**[RequestOut]**](RequestOut.md)
 
 ### Authorization
 
@@ -590,7 +590,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchRequestsByUserId"></a>
 # **fetchRequestsByUserId**
-> [Request] fetchRequestsByUserId(userId)
+> [RequestOut] fetchRequestsByUserId(userId)
 
 Return associated requests by given user id
 
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Request]**](Request.md)
+[**[RequestOut]**](RequestOut.md)
 
 ### Authorization
 
@@ -638,7 +638,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchStageById"></a>
 # **fetchStageById**
-> Stage fetchStageById(id)
+> StageOut fetchStageById(id)
 
 Return an approval stage by given id
 
@@ -673,7 +673,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Stage**](Stage.md)
+[**StageOut**](StageOut.md)
 
 ### Authorization
 
@@ -686,7 +686,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchStages"></a>
 # **fetchStages**
-> [Stage] fetchStages(opts)
+> [StageOut] fetchStages(opts)
 
 Return all approval stages
 
@@ -725,7 +725,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Stage]**](Stage.md)
+[**[StageOut]**](StageOut.md)
 
 ### Authorization
 
@@ -738,7 +738,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchTemplateById"></a>
 # **fetchTemplateById**
-> Template fetchTemplateById(id)
+> TemplateOut fetchTemplateById(id)
 
 Return a template by given id
 
@@ -773,7 +773,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Template**](Template.md)
+[**TemplateOut**](TemplateOut.md)
 
 ### Authorization
 
@@ -786,7 +786,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchTemplateWorkflows"></a>
 # **fetchTemplateWorkflows**
-> [Workflow] fetchTemplateWorkflows(templateId, opts)
+> [WorkflowOut] fetchTemplateWorkflows(templateId, opts)
 
 Return an array of workflows by given template id
 
@@ -827,7 +827,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Workflow]**](Workflow.md)
+[**[WorkflowOut]**](WorkflowOut.md)
 
 ### Authorization
 
@@ -840,7 +840,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchTemplates"></a>
 # **fetchTemplates**
-> [Template] fetchTemplates(opts)
+> [TemplateOut] fetchTemplates(opts)
 
 Return all templates
 
@@ -879,7 +879,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Template]**](Template.md)
+[**[TemplateOut]**](TemplateOut.md)
 
 ### Authorization
 
@@ -892,7 +892,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchUserById"></a>
 # **fetchUserById**
-> User fetchUserById(id)
+> UserOut fetchUserById(id)
 
 Return user by given id
 
@@ -927,7 +927,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**UserOut**](UserOut.md)
 
 ### Authorization
 
@@ -940,7 +940,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchUsers"></a>
 # **fetchUsers**
-> [User] fetchUsers(opts)
+> [UserOut] fetchUsers(opts)
 
 Return a list of users
 
@@ -979,7 +979,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[User]**](User.md)
+[**[UserOut]**](UserOut.md)
 
 ### Authorization
 
@@ -992,7 +992,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchUsersByGroupId"></a>
 # **fetchUsersByGroupId**
-> [User] fetchUsersByGroupId(groupId)
+> [UserOut] fetchUsersByGroupId(groupId)
 
 Return associated users by given group id
 
@@ -1027,7 +1027,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[User]**](User.md)
+[**[UserOut]**](UserOut.md)
 
 ### Authorization
 
@@ -1040,7 +1040,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchWorkflowById"></a>
 # **fetchWorkflowById**
-> Workflow fetchWorkflowById(id)
+> WorkflowOut fetchWorkflowById(id)
 
 Return an approval workflow by given id
 
@@ -1075,7 +1075,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Workflow**](Workflow.md)
+[**WorkflowOut**](WorkflowOut.md)
 
 ### Authorization
 
@@ -1088,7 +1088,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchWorkflowRequests"></a>
 # **fetchWorkflowRequests**
-> [Request] fetchWorkflowRequests(workflowId, opts)
+> [RequestOut] fetchWorkflowRequests(workflowId, opts)
 
 Return approval requests by given workflow id
 
@@ -1129,7 +1129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Request]**](Request.md)
+[**[RequestOut]**](RequestOut.md)
 
 ### Authorization
 
@@ -1142,7 +1142,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchWorkflows"></a>
 # **fetchWorkflows**
-> [Workflow] fetchWorkflows(opts)
+> [WorkflowOut] fetchWorkflows(opts)
 
 Return all approval workflows
 
@@ -1181,7 +1181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Workflow]**](Workflow.md)
+[**[WorkflowOut]**](WorkflowOut.md)
 
 ### Authorization
 
@@ -1194,7 +1194,7 @@ Name | Type | Description  | Notes
 
 <a name="groupOperation"></a>
 # **groupOperation**
-> User groupOperation(id, groupOperationParameters)
+> GroupOut groupOperation(id, groupOperationIn)
 
 Operation on a list of users to a given group
 
@@ -1213,8 +1213,8 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
 let id = 56; // Number | Query by id
-let groupOperationParameters = new InsightsServiceApprovalApIs.GroupOperationParameters(); // GroupOperationParameters | Parameters need to operate groups
-apiInstance.groupOperation(id, groupOperationParameters).then((data) => {
+let groupOperationIn = new InsightsServiceApprovalApIs.GroupOperationIn(); // GroupOperationIn | Parameters need to operate groups
+apiInstance.groupOperation(id, groupOperationIn).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -1227,11 +1227,11 @@ apiInstance.groupOperation(id, groupOperationParameters).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Query by id | 
- **groupOperationParameters** | [**GroupOperationParameters**](GroupOperationParameters.md)| Parameters need to operate groups | 
+ **groupOperationIn** | [**GroupOperationIn**](GroupOperationIn.md)| Parameters need to operate groups | 
 
 ### Return type
 
-[**User**](User.md)
+[**GroupOut**](GroupOut.md)
 
 ### Authorization
 
@@ -1388,7 +1388,7 @@ null (empty response body)
 
 <a name="updateGroup"></a>
 # **updateGroup**
-> updateGroup(id, group)
+> updateGroup(id, groupIn)
 
 Update an user group by given id
 
@@ -1407,8 +1407,8 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
 let id = 56; // Number | Query by id
-let group = new InsightsServiceApprovalApIs.Group(); // Group | User group object that needs to be updated
-apiInstance.updateGroup(id, group).then(() => {
+let groupIn = new InsightsServiceApprovalApIs.GroupIn(); // GroupIn | User group object that needs to be updated
+apiInstance.updateGroup(id, groupIn).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -1421,7 +1421,7 @@ apiInstance.updateGroup(id, group).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Query by id | 
- **group** | [**Group**](Group.md)| User group object that needs to be updated | 
+ **groupIn** | [**GroupIn**](GroupIn.md)| User group object that needs to be updated | 
 
 ### Return type
 
@@ -1438,7 +1438,7 @@ null (empty response body)
 
 <a name="updateUser"></a>
 # **updateUser**
-> updateUser(id, user)
+> updateUser(id, userIn)
 
 Update an user by given id
 
@@ -1457,8 +1457,8 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
 let id = 56; // Number | Query by id
-let user = new InsightsServiceApprovalApIs.User(); // User | User object that needs to be updated
-apiInstance.updateUser(id, user).then(() => {
+let userIn = new InsightsServiceApprovalApIs.UserIn(); // UserIn | User object that needs to be updated
+apiInstance.updateUser(id, userIn).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -1471,7 +1471,7 @@ apiInstance.updateUser(id, user).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Query by id | 
- **user** | [**User**](User.md)| User object that needs to be updated | 
+ **userIn** | [**UserIn**](UserIn.md)| User object that needs to be updated | 
 
 ### Return type
 
@@ -1488,7 +1488,7 @@ null (empty response body)
 
 <a name="updateWorkflow"></a>
 # **updateWorkflow**
-> updateWorkflow(id, workflowParameters)
+> updateWorkflow(id, workflowIn)
 
 Update an approval workflow by given id
 
@@ -1507,8 +1507,8 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
 let id = 56; // Number | Query by id
-let workflowParameters = new InsightsServiceApprovalApIs.WorkflowParameters(); // WorkflowParameters | Parameters need to update approval workflow
-apiInstance.updateWorkflow(id, workflowParameters).then(() => {
+let workflowIn = new InsightsServiceApprovalApIs.WorkflowIn(); // WorkflowIn | Parameters need to update approval workflow
+apiInstance.updateWorkflow(id, workflowIn).then(() => {
   console.log('API called successfully.');
 }, (error) => {
   console.error(error);
@@ -1521,7 +1521,7 @@ apiInstance.updateWorkflow(id, workflowParameters).then(() => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| Query by id | 
- **workflowParameters** | [**WorkflowParameters**](WorkflowParameters.md)| Parameters need to update approval workflow | 
+ **workflowIn** | [**WorkflowIn**](WorkflowIn.md)| Parameters need to update approval workflow | 
 
 ### Return type
 

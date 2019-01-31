@@ -13,15 +13,22 @@
 
 
 import ApiClient from './ApiClient';
-import Action from './model/Action';
-import Group from './model/Group';
-import GroupOperationParameters from './model/GroupOperationParameters';
-import Request from './model/Request';
-import Stage from './model/Stage';
-import Template from './model/Template';
-import User from './model/User';
+import ActionIn from './model/ActionIn';
+import ActionOut from './model/ActionOut';
+import GroupIn from './model/GroupIn';
+import GroupOperationIn from './model/GroupOperationIn';
+import GroupOut from './model/GroupOut';
+import RequestIn from './model/RequestIn';
+import RequestOut from './model/RequestOut';
+import StageIn from './model/StageIn';
+import StageOut from './model/StageOut';
+import TemplateIn from './model/TemplateIn';
+import TemplateOut from './model/TemplateOut';
+import UserIn from './model/UserIn';
+import UserOut from './model/UserOut';
 import Workflow from './model/Workflow';
-import WorkflowParameters from './model/WorkflowParameters';
+import WorkflowIn from './model/WorkflowIn';
+import WorkflowOut from './model/WorkflowOut';
 import AdminsApi from './api/AdminsApi';
 import RequestersApi from './api/RequestersApi';
 import UsersApi from './api/UsersApi';
@@ -66,46 +73,82 @@ export {
     ApiClient,
 
     /**
-     * The Action model constructor.
-     * @property {module:model/Action}
+     * The ActionIn model constructor.
+     * @property {module:model/ActionIn}
      */
-    Action,
+    ActionIn,
 
     /**
-     * The Group model constructor.
-     * @property {module:model/Group}
+     * The ActionOut model constructor.
+     * @property {module:model/ActionOut}
      */
-    Group,
+    ActionOut,
 
     /**
-     * The GroupOperationParameters model constructor.
-     * @property {module:model/GroupOperationParameters}
+     * The GroupIn model constructor.
+     * @property {module:model/GroupIn}
      */
-    GroupOperationParameters,
+    GroupIn,
 
     /**
-     * The Request model constructor.
-     * @property {module:model/Request}
+     * The GroupOperationIn model constructor.
+     * @property {module:model/GroupOperationIn}
      */
-    Request,
+    GroupOperationIn,
 
     /**
-     * The Stage model constructor.
-     * @property {module:model/Stage}
+     * The GroupOut model constructor.
+     * @property {module:model/GroupOut}
      */
-    Stage,
+    GroupOut,
 
     /**
-     * The Template model constructor.
-     * @property {module:model/Template}
+     * The RequestIn model constructor.
+     * @property {module:model/RequestIn}
      */
-    Template,
+    RequestIn,
 
     /**
-     * The User model constructor.
-     * @property {module:model/User}
+     * The RequestOut model constructor.
+     * @property {module:model/RequestOut}
      */
-    User,
+    RequestOut,
+
+    /**
+     * The StageIn model constructor.
+     * @property {module:model/StageIn}
+     */
+    StageIn,
+
+    /**
+     * The StageOut model constructor.
+     * @property {module:model/StageOut}
+     */
+    StageOut,
+
+    /**
+     * The TemplateIn model constructor.
+     * @property {module:model/TemplateIn}
+     */
+    TemplateIn,
+
+    /**
+     * The TemplateOut model constructor.
+     * @property {module:model/TemplateOut}
+     */
+    TemplateOut,
+
+    /**
+     * The UserIn model constructor.
+     * @property {module:model/UserIn}
+     */
+    UserIn,
+
+    /**
+     * The UserOut model constructor.
+     * @property {module:model/UserOut}
+     */
+    UserOut,
 
     /**
      * The Workflow model constructor.
@@ -114,10 +157,16 @@ export {
     Workflow,
 
     /**
-     * The WorkflowParameters model constructor.
-     * @property {module:model/WorkflowParameters}
+     * The WorkflowIn model constructor.
+     * @property {module:model/WorkflowIn}
      */
-    WorkflowParameters,
+    WorkflowIn,
+
+    /**
+     * The WorkflowOut model constructor.
+     * @property {module:model/WorkflowOut}
+     */
+    WorkflowOut,
 
     /**
     * The AdminsApi service constructor.

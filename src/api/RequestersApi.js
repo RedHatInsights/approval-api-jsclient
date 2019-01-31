@@ -13,8 +13,9 @@
 
 
 import ApiClient from "../ApiClient";
-import Request from '../model/Request';
-import Stage from '../model/Stage';
+import RequestIn from '../model/RequestIn';
+import RequestOut from '../model/RequestOut';
+import StageOut from '../model/StageOut';
 
 /**
 * Requesters service.
@@ -40,20 +41,20 @@ export default class RequestersApi {
      * Add an approval request by given parameters
      * Add an approval request by given parameters
      * @param {Number} workflowId Id of workflow
-     * @param {module:model/Request} request Parameters need to create a request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Request} and HTTP response
+     * @param {module:model/RequestIn} requestIn Parameters need to create a request
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RequestOut} and HTTP response
      */
-    addRequestWithHttpInfo(workflowId, request) {
-      let postBody = request;
+    addRequestWithHttpInfo(workflowId, requestIn) {
+      let postBody = requestIn;
 
       // verify the required parameter 'workflowId' is set
       if (workflowId === undefined || workflowId === null) {
         throw new Error("Missing the required parameter 'workflowId' when calling addRequest");
       }
 
-      // verify the required parameter 'request' is set
-      if (request === undefined || request === null) {
-        throw new Error("Missing the required parameter 'request' when calling addRequest");
+      // verify the required parameter 'requestIn' is set
+      if (requestIn === undefined || requestIn === null) {
+        throw new Error("Missing the required parameter 'requestIn' when calling addRequest");
       }
 
 
@@ -70,7 +71,7 @@ export default class RequestersApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = Request;
+      let returnType = RequestOut;
 
       return this.apiClient.callApi(
         '/workflows/{workflow_id}/requests', 'POST',
@@ -83,11 +84,11 @@ export default class RequestersApi {
      * Add an approval request by given parameters
      * Add an approval request by given parameters
      * @param {Number} workflowId Id of workflow
-     * @param {module:model/Request} request Parameters need to create a request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Request}
+     * @param {module:model/RequestIn} requestIn Parameters need to create a request
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RequestOut}
      */
-    addRequest(workflowId, request) {
-      return this.addRequestWithHttpInfo(workflowId, request)
+    addRequest(workflowId, requestIn) {
+      return this.addRequestWithHttpInfo(workflowId, requestIn)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -98,7 +99,7 @@ export default class RequestersApi {
      * Return an approval request by given id
      * Return an approval request by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Request} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/RequestOut} and HTTP response
      */
     fetchRequestByIdWithHttpInfo(id) {
       let postBody = null;
@@ -122,7 +123,7 @@ export default class RequestersApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = Request;
+      let returnType = RequestOut;
 
       return this.apiClient.callApi(
         '/requests/{id}', 'GET',
@@ -135,7 +136,7 @@ export default class RequestersApi {
      * Return an approval request by given id
      * Return an approval request by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Request}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/RequestOut}
      */
     fetchRequestById(id) {
       return this.fetchRequestByIdWithHttpInfo(id)
@@ -149,7 +150,7 @@ export default class RequestersApi {
      * Return an array of stages by given request id
      * Return an array of stages by given request id
      * @param {Number} requestId Id of request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Stage>} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/StageOut>} and HTTP response
      */
     fetchRequestStagesWithHttpInfo(requestId) {
       let postBody = null;
@@ -173,7 +174,7 @@ export default class RequestersApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [Stage];
+      let returnType = [StageOut];
 
       return this.apiClient.callApi(
         '/requests/{request_id}/stages', 'GET',
@@ -186,7 +187,7 @@ export default class RequestersApi {
      * Return an array of stages by given request id
      * Return an array of stages by given request id
      * @param {Number} requestId Id of request
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Stage>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/StageOut>}
      */
     fetchRequestStages(requestId) {
       return this.fetchRequestStagesWithHttpInfo(requestId)
@@ -200,7 +201,7 @@ export default class RequestersApi {
      * Return an approval stage by given id
      * Return an approval stage by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Stage} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/StageOut} and HTTP response
      */
     fetchStageByIdWithHttpInfo(id) {
       let postBody = null;
@@ -224,7 +225,7 @@ export default class RequestersApi {
       let authNames = ['APIKey_auth'];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = Stage;
+      let returnType = StageOut;
 
       return this.apiClient.callApi(
         '/stages/{id}', 'GET',
@@ -237,7 +238,7 @@ export default class RequestersApi {
      * Return an approval stage by given id
      * Return an approval stage by given id
      * @param {Number} id Query by id
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Stage}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/StageOut}
      */
     fetchStageById(id) {
       return this.fetchStageByIdWithHttpInfo(id)

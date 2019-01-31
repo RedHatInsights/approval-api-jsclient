@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="addRequest"></a>
 # **addRequest**
-> Request addRequest(workflowId, request)
+> RequestOut addRequest(workflowId, requestIn)
 
 Add an approval request by given parameters
 
@@ -31,8 +31,8 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 
 let apiInstance = new InsightsServiceApprovalApIs.RequestersApi();
 let workflowId = 56; // Number | Id of workflow
-let request = new InsightsServiceApprovalApIs.Request(); // Request | Parameters need to create a request
-apiInstance.addRequest(workflowId, request).then((data) => {
+let requestIn = new InsightsServiceApprovalApIs.RequestIn(); // RequestIn | Parameters need to create a request
+apiInstance.addRequest(workflowId, requestIn).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -45,11 +45,11 @@ apiInstance.addRequest(workflowId, request).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **workflowId** | **Number**| Id of workflow | 
- **request** | [**Request**](Request.md)| Parameters need to create a request | 
+ **requestIn** | [**RequestIn**](RequestIn.md)| Parameters need to create a request | 
 
 ### Return type
 
-[**Request**](Request.md)
+[**RequestOut**](RequestOut.md)
 
 ### Authorization
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchRequestById"></a>
 # **fetchRequestById**
-> Request fetchRequestById(id)
+> RequestOut fetchRequestById(id)
 
 Return an approval request by given id
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Request**](Request.md)
+[**RequestOut**](RequestOut.md)
 
 ### Authorization
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchRequestStages"></a>
 # **fetchRequestStages**
-> [Stage] fetchRequestStages(requestId)
+> [StageOut] fetchRequestStages(requestId)
 
 Return an array of stages by given request id
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Stage]**](Stage.md)
+[**[StageOut]**](StageOut.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 <a name="fetchStageById"></a>
 # **fetchStageById**
-> Stage fetchStageById(id)
+> StageOut fetchStageById(id)
 
 Return an approval stage by given id
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Stage**](Stage.md)
+[**StageOut**](StageOut.md)
 
 ### Authorization
 

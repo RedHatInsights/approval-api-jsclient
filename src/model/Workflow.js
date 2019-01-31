@@ -21,7 +21,7 @@ import ApiClient from '../ApiClient';
 class Workflow {
     /**
      * Constructs a new <code>Workflow</code>.
-     * The workflow to process approval requests. Each workflow should link with a list of groups, in order to process approval requests.
+     * Input parameters for workflow object
      * @alias module:model/Workflow
      * @param name {String} 
      */
@@ -50,17 +50,8 @@ class Workflow {
         if (data) {
             obj = obj || new Workflow();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
-            if (data.hasOwnProperty('description')) {
-                obj['description'] = ApiClient.convertToType(data['description'], 'String');
-            }
-            if (data.hasOwnProperty('template_id')) {
-                obj['template_id'] = ApiClient.convertToType(data['template_id'], 'String');
             }
         }
         return obj;
@@ -70,25 +61,9 @@ class Workflow {
 }
 
 /**
- * @member {String} id
- */
-Workflow.prototype['id'] = undefined;
-
-/**
  * @member {String} name
  */
 Workflow.prototype['name'] = undefined;
-
-/**
- * @member {String} description
- */
-Workflow.prototype['description'] = undefined;
-
-/**
- * Associated template id
- * @member {String} template_id
- */
-Workflow.prototype['template_id'] = undefined;
 
 
 

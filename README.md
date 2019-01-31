@@ -79,8 +79,8 @@ APIKey_auth.apiKey = "YOUR API KEY"
 
 var api = new InsightsServiceApprovalApIs.AdminsApi()
 var stageId = 56; // {Number} Id of stage
-var action = new InsightsServiceApprovalApIs.Action(); // {Action} Action object that will be added
-api.addAction(stageId, action).then(function(data) {
+var actionIn = new InsightsServiceApprovalApIs.ActionIn(); // {ActionIn} Action object that will be added
+api.addAction(stageId, actionIn).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -136,15 +136,22 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [InsightsServiceApprovalApIs.Action](docs/Action.md)
- - [InsightsServiceApprovalApIs.Group](docs/Group.md)
- - [InsightsServiceApprovalApIs.GroupOperationParameters](docs/GroupOperationParameters.md)
- - [InsightsServiceApprovalApIs.Request](docs/Request.md)
- - [InsightsServiceApprovalApIs.Stage](docs/Stage.md)
- - [InsightsServiceApprovalApIs.Template](docs/Template.md)
- - [InsightsServiceApprovalApIs.User](docs/User.md)
+ - [InsightsServiceApprovalApIs.ActionIn](docs/ActionIn.md)
+ - [InsightsServiceApprovalApIs.ActionOut](docs/ActionOut.md)
+ - [InsightsServiceApprovalApIs.GroupIn](docs/GroupIn.md)
+ - [InsightsServiceApprovalApIs.GroupOperationIn](docs/GroupOperationIn.md)
+ - [InsightsServiceApprovalApIs.GroupOut](docs/GroupOut.md)
+ - [InsightsServiceApprovalApIs.RequestIn](docs/RequestIn.md)
+ - [InsightsServiceApprovalApIs.RequestOut](docs/RequestOut.md)
+ - [InsightsServiceApprovalApIs.StageIn](docs/StageIn.md)
+ - [InsightsServiceApprovalApIs.StageOut](docs/StageOut.md)
+ - [InsightsServiceApprovalApIs.TemplateIn](docs/TemplateIn.md)
+ - [InsightsServiceApprovalApIs.TemplateOut](docs/TemplateOut.md)
+ - [InsightsServiceApprovalApIs.UserIn](docs/UserIn.md)
+ - [InsightsServiceApprovalApIs.UserOut](docs/UserOut.md)
  - [InsightsServiceApprovalApIs.Workflow](docs/Workflow.md)
- - [InsightsServiceApprovalApIs.WorkflowParameters](docs/WorkflowParameters.md)
+ - [InsightsServiceApprovalApIs.WorkflowIn](docs/WorkflowIn.md)
+ - [InsightsServiceApprovalApIs.WorkflowOut](docs/WorkflowOut.md)
 
 
 ## Documentation for Authorization
