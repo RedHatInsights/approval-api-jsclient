@@ -51,6 +51,9 @@ class UserOut {
             if (data.hasOwnProperty('id')) {
                 obj['id'] = ApiClient.convertToType(data['id'], 'String');
             }
+            if (data.hasOwnProperty('email')) {
+                obj['email'] = ApiClient.convertToType(data['email'], 'String');
+            }
             if (data.hasOwnProperty('first_name')) {
                 obj['first_name'] = ApiClient.convertToType(data['first_name'], 'String');
             }
@@ -71,6 +74,12 @@ class UserOut {
  * @member {String} id
  */
 UserOut.prototype['id'] = undefined;
+
+/**
+ * Email address of the user
+ * @member {String} email
+ */
+UserOut.prototype['email'] = undefined;
 
 /**
  * @member {String} first_name
