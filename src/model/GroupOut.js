@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import GroupIn from './GroupIn';
 
 /**
  * The GroupOut model module.
@@ -24,13 +23,10 @@ class GroupOut {
      * Constructs a new <code>GroupOut</code>.
      * User groups.
      * @alias module:model/GroupOut
-     * @extends module:model/GroupIn
-     * @implements module:model/GroupIn
-     * @param name {} Group name
      */
-    constructor(name) { 
-        GroupIn.initialize(this, name);
-        GroupOut.initialize(this, name);
+    constructor() { 
+        
+        GroupOut.initialize(this);
     }
 
     /**
@@ -38,7 +34,7 @@ class GroupOut {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
+    static initialize(obj) { 
     }
 
     /**
@@ -51,9 +47,16 @@ class GroupOut {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new GroupOut();
-            GroupIn.constructFromObject(data, obj);
-            GroupIn.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('user_ids')) {
+                obj['user_ids'] = ApiClient.convertToType(data['user_ids'], ['String']);
+            }
         }
         return obj;
     }
@@ -61,13 +64,23 @@ class GroupOut {
 
 }
 
+/**
+ * @member {String} id
+ */
+GroupOut.prototype['id'] = undefined;
 
-// Implement GroupIn interface:
 /**
  * Group name
  * @member {String} name
  */
-GroupIn.prototype['name'] = undefined;
+GroupOut.prototype['name'] = undefined;
+
+/**
+ * @member {Array.<String>} user_ids
+ */
+GroupOut.prototype['user_ids'] = undefined;
+
+
 
 
 

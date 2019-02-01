@@ -54,6 +54,24 @@
       //expect(instance).to.be.a(InsightsServiceApprovalApIs.GroupOut);
     });
 
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instane = new InsightsServiceApprovalApIs.GroupOut();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instane = new InsightsServiceApprovalApIs.GroupOut();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property userIds (base name: "user_ids")', function() {
+      // uncomment below and update the code to test the property userIds
+      //var instane = new InsightsServiceApprovalApIs.GroupOut();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));
