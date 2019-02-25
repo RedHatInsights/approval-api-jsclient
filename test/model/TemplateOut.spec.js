@@ -54,6 +54,24 @@
       //expect(instance).to.be.a(InsightsServiceApprovalApIs.TemplateOut);
     });
 
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instane = new InsightsServiceApprovalApIs.TemplateOut();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property title (base name: "title")', function() {
+      // uncomment below and update the code to test the property title
+      //var instane = new InsightsServiceApprovalApIs.TemplateOut();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
+      //var instane = new InsightsServiceApprovalApIs.TemplateOut();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

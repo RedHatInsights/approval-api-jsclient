@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property comments (base name: "comments")', function() {
+      // uncomment below and update the code to test the property comments
+      //var instane = new InsightsServiceApprovalApIs.ActionIn();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

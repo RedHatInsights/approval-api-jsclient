@@ -21,7 +21,6 @@ import ApiClient from '../ApiClient';
 class Workflow {
     /**
      * Constructs a new <code>Workflow</code>.
-     * Input parameters for workflow object
      * @alias module:model/Workflow
      * @param name {String} 
      */
@@ -53,6 +52,9 @@ class Workflow {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
         }
         return obj;
     }
@@ -64,6 +66,11 @@ class Workflow {
  * @member {String} name
  */
 Workflow.prototype['name'] = undefined;
+
+/**
+ * @member {String} description
+ */
+Workflow.prototype['description'] = undefined;
 
 
 

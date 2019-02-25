@@ -68,10 +68,40 @@
         done();
       });
     });
-    describe('fetchActions', function() {
-      it('should call fetchActions successfully', function(done) {
-        //uncomment below and update the code to test fetchActions
-        //instance.fetchActions(function(error) {
+    describe('fetchActionsByStageId', function() {
+      it('should call fetchActionsByStageId successfully', function(done) {
+        //uncomment below and update the code to test fetchActionsByStageId
+        //instance.fetchActionsByStageId(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('fetchRequestById', function() {
+      it('should call fetchRequestById successfully', function(done) {
+        //uncomment below and update the code to test fetchRequestById
+        //instance.fetchRequestById(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('fetchRequestStages', function() {
+      it('should call fetchRequestStages successfully', function(done) {
+        //uncomment below and update the code to test fetchRequestStages
+        //instance.fetchRequestStages(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('fetchRequests', function() {
+      it('should call fetchRequests successfully', function(done) {
+        //uncomment below and update the code to test fetchRequests
+        //instance.fetchRequests(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

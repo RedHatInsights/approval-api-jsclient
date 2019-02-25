@@ -25,12 +25,11 @@ class ActionOut {
      * @alias module:model/ActionOut
      * @extends module:model/ActionIn
      * @implements module:model/ActionIn
-     * @param processedBy {} Processor info who perform the action
      * @param operation {} Types of action, may be one of the value (approve, deny, notify, memo, or skip). The stage will be updated according to the operation.
      */
-    constructor(processedBy, operation) { 
-        ActionIn.initialize(this, processedBy, operation);
-        ActionOut.initialize(this, processedBy, operation);
+    constructor(operation) { 
+        ActionIn.initialize(this, operation);
+        ActionOut.initialize(this, operation);
     }
 
     /**
@@ -38,7 +37,7 @@ class ActionOut {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, processedBy, operation) { 
+    static initialize(obj, operation) { 
     }
 
     /**
@@ -64,7 +63,7 @@ class ActionOut {
 
 // Implement ActionIn interface:
 /**
- * Processor info who perform the action
+ * The person who performs the action
  * @member {String} processed_by
  */
 ActionIn.prototype['processed_by'] = undefined;
@@ -74,6 +73,11 @@ ActionIn.prototype['processed_by'] = undefined;
  * @default 'memo'
  */
 ActionIn.prototype['operation'] = 'memo';
+/**
+ * Comments for action
+ * @member {String} comments
+ */
+ActionIn.prototype['comments'] = undefined;
 
 
 

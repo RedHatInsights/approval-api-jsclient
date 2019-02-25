@@ -78,9 +78,8 @@ APIKey_auth.apiKey = "YOUR API KEY"
 //APIKey_auth.apiKeyPrefix['x-rh-auth-identity'] = "Token"
 
 var api = new InsightsServiceApprovalApIs.AdminsApi()
-var stageId = 56; // {Number} Id of stage
-var actionIn = new InsightsServiceApprovalApIs.ActionIn(); // {ActionIn} Action object that will be added
-api.addAction(stageId, actionIn).then(function(data) {
+var groupIn = new InsightsServiceApprovalApIs.GroupIn(); // {GroupIn} Parameters need to create user group
+api.addGroup(groupIn).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -91,24 +90,19 @@ api.addAction(stageId, actionIn).then(function(data) {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:3000/r/insights/platform/approval*
+All URIs are relative to *http://localhost:3000*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*InsightsServiceApprovalApIs.AdminsApi* | [**addAction**](docs/AdminsApi.md#addAction) | **POST** /stages/{stage_id}/actions | Add an action to a given stage
-*InsightsServiceApprovalApIs.AdminsApi* | [**addActionByRequestId**](docs/AdminsApi.md#addActionByRequestId) | **POST** /requests/{request_id}/actions | Add an action to a given request
 *InsightsServiceApprovalApIs.AdminsApi* | [**addGroup**](docs/AdminsApi.md#addGroup) | **POST** /groups | Add a new user group by given parameters
 *InsightsServiceApprovalApIs.AdminsApi* | [**addUser**](docs/AdminsApi.md#addUser) | **POST** /users | Add a new user by given parameters
 *InsightsServiceApprovalApIs.AdminsApi* | [**addWorkflow**](docs/AdminsApi.md#addWorkflow) | **POST** /templates/{template_id}/workflows | Add a workflow by given template id
-*InsightsServiceApprovalApIs.AdminsApi* | [**fetchActionById**](docs/AdminsApi.md#fetchActionById) | **GET** /actions/{id} | Return an user action by id
-*InsightsServiceApprovalApIs.AdminsApi* | [**fetchActions**](docs/AdminsApi.md#fetchActions) | **GET** /actions | Return a list of user actions
 *InsightsServiceApprovalApIs.AdminsApi* | [**fetchGroupById**](docs/AdminsApi.md#fetchGroupById) | **GET** /groups/{id} | Return user group by given id
 *InsightsServiceApprovalApIs.AdminsApi* | [**fetchGroups**](docs/AdminsApi.md#fetchGroups) | **GET** /groups | Return all user groups
 *InsightsServiceApprovalApIs.AdminsApi* | [**fetchGroupsByUserId**](docs/AdminsApi.md#fetchGroupsByUserId) | **GET** /users/{user_id}/groups | Return associated groups by given user id
-*InsightsServiceApprovalApIs.AdminsApi* | [**fetchRequests**](docs/AdminsApi.md#fetchRequests) | **GET** /requests | Return an array of approval requests
+*InsightsServiceApprovalApIs.AdminsApi* | [**fetchGroupsByWorkflowId**](docs/AdminsApi.md#fetchGroupsByWorkflowId) | **GET** /workflows/{workflow_id}/groups | Return an array of groups for the workflow
 *InsightsServiceApprovalApIs.AdminsApi* | [**fetchRequestsByUserId**](docs/AdminsApi.md#fetchRequestsByUserId) | **GET** /users/{user_id}/requests | Return associated requests by given user id
 *InsightsServiceApprovalApIs.AdminsApi* | [**fetchStageById**](docs/AdminsApi.md#fetchStageById) | **GET** /stages/{id} | Return an approval stage by given id
-*InsightsServiceApprovalApIs.AdminsApi* | [**fetchStages**](docs/AdminsApi.md#fetchStages) | **GET** /stages | Return all approval stages
 *InsightsServiceApprovalApIs.AdminsApi* | [**fetchTemplateById**](docs/AdminsApi.md#fetchTemplateById) | **GET** /templates/{id} | Return a template by given id
 *InsightsServiceApprovalApIs.AdminsApi* | [**fetchTemplateWorkflows**](docs/AdminsApi.md#fetchTemplateWorkflows) | **GET** /templates/{template_id}/workflows | Return an array of workflows by given template id
 *InsightsServiceApprovalApIs.AdminsApi* | [**fetchTemplates**](docs/AdminsApi.md#fetchTemplates) | **GET** /templates | Return all templates
@@ -118,7 +112,7 @@ Class | Method | HTTP request | Description
 *InsightsServiceApprovalApIs.AdminsApi* | [**fetchWorkflowById**](docs/AdminsApi.md#fetchWorkflowById) | **GET** /workflows/{id} | Return an approval workflow by given id
 *InsightsServiceApprovalApIs.AdminsApi* | [**fetchWorkflowRequests**](docs/AdminsApi.md#fetchWorkflowRequests) | **GET** /workflows/{workflow_id}/requests | Return approval requests by given workflow id
 *InsightsServiceApprovalApIs.AdminsApi* | [**fetchWorkflows**](docs/AdminsApi.md#fetchWorkflows) | **GET** /workflows | Return all approval workflows
-*InsightsServiceApprovalApIs.AdminsApi* | [**groupOperation**](docs/AdminsApi.md#groupOperation) | **POST** /groups/{id} | Operation on a list of users to a given group
+*InsightsServiceApprovalApIs.AdminsApi* | [**groupOperation**](docs/AdminsApi.md#groupOperation) | **POST** /groups/{id} | Update users in a given group
 *InsightsServiceApprovalApIs.AdminsApi* | [**removeGroup**](docs/AdminsApi.md#removeGroup) | **DELETE** /groups/{id} | Delete user group by given id
 *InsightsServiceApprovalApIs.AdminsApi* | [**removeUser**](docs/AdminsApi.md#removeUser) | **DELETE** /users/{id} | Delete user by given id
 *InsightsServiceApprovalApIs.AdminsApi* | [**removeWorkflow**](docs/AdminsApi.md#removeWorkflow) | **DELETE** /workflows/{id} | Delete approval workflow by given id
@@ -126,12 +120,17 @@ Class | Method | HTTP request | Description
 *InsightsServiceApprovalApIs.AdminsApi* | [**updateUser**](docs/AdminsApi.md#updateUser) | **PATCH** /users/{id} | Update an user by given id
 *InsightsServiceApprovalApIs.AdminsApi* | [**updateWorkflow**](docs/AdminsApi.md#updateWorkflow) | **PATCH** /workflows/{id} | Update an approval workflow by given id
 *InsightsServiceApprovalApIs.RequestersApi* | [**addRequest**](docs/RequestersApi.md#addRequest) | **POST** /workflows/{workflow_id}/requests | Add an approval request by given parameters
+*InsightsServiceApprovalApIs.RequestersApi* | [**fetchActionsByStageId**](docs/RequestersApi.md#fetchActionsByStageId) | **GET** /stages/{stage_id}/actions | Return actions in a given stage
 *InsightsServiceApprovalApIs.RequestersApi* | [**fetchRequestById**](docs/RequestersApi.md#fetchRequestById) | **GET** /requests/{id} | Return an approval request by given id
 *InsightsServiceApprovalApIs.RequestersApi* | [**fetchRequestStages**](docs/RequestersApi.md#fetchRequestStages) | **GET** /requests/{request_id}/stages | Return an array of stages by given request id
+*InsightsServiceApprovalApIs.RequestersApi* | [**fetchRequests**](docs/RequestersApi.md#fetchRequests) | **GET** /requests | Return an array of approval requests
 *InsightsServiceApprovalApIs.RequestersApi* | [**fetchStageById**](docs/RequestersApi.md#fetchStageById) | **GET** /stages/{id} | Return an approval stage by given id
 *InsightsServiceApprovalApIs.UsersApi* | [**addAction**](docs/UsersApi.md#addAction) | **POST** /stages/{stage_id}/actions | Add an action to a given stage
 *InsightsServiceApprovalApIs.UsersApi* | [**fetchActionById**](docs/UsersApi.md#fetchActionById) | **GET** /actions/{id} | Return an user action by id
-*InsightsServiceApprovalApIs.UsersApi* | [**fetchActions**](docs/UsersApi.md#fetchActions) | **GET** /actions | Return a list of user actions
+*InsightsServiceApprovalApIs.UsersApi* | [**fetchActionsByStageId**](docs/UsersApi.md#fetchActionsByStageId) | **GET** /stages/{stage_id}/actions | Return actions in a given stage
+*InsightsServiceApprovalApIs.UsersApi* | [**fetchRequestById**](docs/UsersApi.md#fetchRequestById) | **GET** /requests/{id} | Return an approval request by given id
+*InsightsServiceApprovalApIs.UsersApi* | [**fetchRequestStages**](docs/UsersApi.md#fetchRequestStages) | **GET** /requests/{request_id}/stages | Return an array of stages by given request id
+*InsightsServiceApprovalApIs.UsersApi* | [**fetchRequests**](docs/UsersApi.md#fetchRequests) | **GET** /requests | Return an array of approval requests
 
 
 ## Documentation for Models
@@ -143,9 +142,7 @@ Class | Method | HTTP request | Description
  - [InsightsServiceApprovalApIs.GroupOut](docs/GroupOut.md)
  - [InsightsServiceApprovalApIs.RequestIn](docs/RequestIn.md)
  - [InsightsServiceApprovalApIs.RequestOut](docs/RequestOut.md)
- - [InsightsServiceApprovalApIs.StageIn](docs/StageIn.md)
  - [InsightsServiceApprovalApIs.StageOut](docs/StageOut.md)
- - [InsightsServiceApprovalApIs.TemplateIn](docs/TemplateIn.md)
  - [InsightsServiceApprovalApIs.TemplateOut](docs/TemplateOut.md)
  - [InsightsServiceApprovalApIs.UserIn](docs/UserIn.md)
  - [InsightsServiceApprovalApIs.UserOut](docs/UserOut.md)

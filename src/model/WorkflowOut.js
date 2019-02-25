@@ -22,7 +22,7 @@ import Workflow from './Workflow';
 class WorkflowOut {
     /**
      * Constructs a new <code>WorkflowOut</code>.
-     * The workflow to process approval requests. Each workflow should link with a list of groups, in order to process approval requests.
+     * The workflow to process approval requests. Each workflow is linked to multiple groups of approvals.
      * @alias module:model/WorkflowOut
      * @extends module:model/Workflow
      * @implements module:model/Workflow
@@ -67,6 +67,10 @@ class WorkflowOut {
  * @member {String} name
  */
 Workflow.prototype['name'] = undefined;
+/**
+ * @member {String} description
+ */
+Workflow.prototype['description'] = undefined;
 
 
 

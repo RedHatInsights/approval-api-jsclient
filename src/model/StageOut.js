@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import StageIn from './StageIn';
+import DateTime from './DateTime';
 
 /**
  * The StageOut model module.
@@ -22,17 +22,12 @@ import StageIn from './StageIn';
 class StageOut {
     /**
      * Constructs a new <code>StageOut</code>.
-     * The stage of approval request.
+     * A stage of an approval request.
      * @alias module:model/StageOut
-     * @extends module:model/StageIn
-     * @implements module:model/StageIn
-     * @param groupId {} Associated group id
-     * @param state {} The state of stage or request. It may be one of values (pending, skipped, notified or finished)
-     * @param decision {} Final decision, may be one of the value (undecided, approved, or denied)
      */
-    constructor(groupId, state, decision) { 
-        StageIn.initialize(this, groupId, state, decision);
-        StageOut.initialize(this, groupId, state, decision);
+    constructor() { 
+        
+        StageOut.initialize(this);
     }
 
     /**
@@ -40,7 +35,7 @@ class StageOut {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, groupId, state, decision) { 
+    static initialize(obj) { 
     }
 
     /**
@@ -53,9 +48,25 @@ class StageOut {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new StageOut();
-            StageIn.constructFromObject(data, obj);
-            StageIn.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('group_id')) {
+                obj['group_id'] = ApiClient.convertToType(data['group_id'], 'String');
+            }
+            if (data.hasOwnProperty('state')) {
+                obj['state'] = ApiClient.convertToType(data['state'], 'String');
+            }
+            if (data.hasOwnProperty('decision')) {
+                obj['decision'] = ApiClient.convertToType(data['decision'], 'String');
+            }
+            if (data.hasOwnProperty('notified_at')) {
+                obj['notified_at'] = ApiClient.convertToType(data['notified_at'], 'Date');
+            }
         }
         return obj;
     }
@@ -63,26 +74,105 @@ class StageOut {
 
 }
 
+/**
+ * @member {String} id
+ */
+StageOut.prototype['id'] = undefined;
 
-// Implement StageIn interface:
+/**
+ * name of the group that processes the stage
+ * @member {String} name
+ */
+StageOut.prototype['name'] = undefined;
+
 /**
  * Associated group id
  * @member {String} group_id
  */
-StageIn.prototype['group_id'] = undefined;
+StageOut.prototype['group_id'] = undefined;
+
 /**
  * The state of stage or request. It may be one of values (pending, skipped, notified or finished)
- * @member {module:model/StageIn.StateEnum} state
+ * @member {module:model/StageOut.StateEnum} state
  * @default 'pending'
  */
-StageIn.prototype['state'] = 'pending';
+StageOut.prototype['state'] = 'pending';
+
 /**
  * Final decision, may be one of the value (undecided, approved, or denied)
- * @member {module:model/StageIn.DecisionEnum} decision
+ * @member {module:model/StageOut.DecisionEnum} decision
  * @default 'undecided'
  */
-StageIn.prototype['decision'] = 'undecided';
+StageOut.prototype['decision'] = 'undecided';
 
+/**
+ * the time approvers in the stage are notified
+ * @member {module:model/Date} notified_at
+ */
+StageOut.prototype['notified_at'] = undefined;
+
+
+
+
+
+/**
+ * Allowed values for the <code>state</code> property.
+ * @enum {String}
+ * @readonly
+ */
+StageOut['StateEnum'] = {
+
+    /**
+     * value: "pending"
+     * @const
+     */
+    "pending": "pending",
+
+    /**
+     * value: "skipped"
+     * @const
+     */
+    "skipped": "skipped",
+
+    /**
+     * value: "notified"
+     * @const
+     */
+    "notified": "notified",
+
+    /**
+     * value: "finished"
+     * @const
+     */
+    "finished": "finished"
+};
+
+
+/**
+ * Allowed values for the <code>decision</code> property.
+ * @enum {String}
+ * @readonly
+ */
+StageOut['DecisionEnum'] = {
+
+    /**
+     * value: "undecided"
+     * @const
+     */
+    "undecided": "undecided",
+
+    /**
+     * value: "approved"
+     * @const
+     */
+    "approved": "approved",
+
+    /**
+     * value: "denied"
+     * @const
+     */
+    "denied": "denied"
+};
 
 
 

@@ -26,12 +26,12 @@ class RequestOut {
      * @alias module:model/RequestOut
      * @extends module:model/RequestIn
      * @implements module:model/RequestIn
-     * @param requester {} Requester info
+     * @param name {} Request name
      * @param content {} JSON object with request content
      */
-    constructor(requester, content) { 
-        RequestIn.initialize(this, requester, content);
-        RequestOut.initialize(this, requester, content);
+    constructor(name, content) { 
+        RequestIn.initialize(this, name, content);
+        RequestOut.initialize(this, name, content);
     }
 
     /**
@@ -39,7 +39,7 @@ class RequestOut {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, requester, content) { 
+    static initialize(obj, name, content) { 
     }
 
     /**
@@ -65,10 +65,20 @@ class RequestOut {
 
 // Implement RequestIn interface:
 /**
- * Requester info
+ * Requester id
  * @member {String} requester
  */
 RequestIn.prototype['requester'] = undefined;
+/**
+ * Request name
+ * @member {String} name
+ */
+RequestIn.prototype['name'] = undefined;
+/**
+ * Request description
+ * @member {String} description
+ */
+RequestIn.prototype['description'] = undefined;
 /**
  * JSON object with request content
  * @member {Object} content

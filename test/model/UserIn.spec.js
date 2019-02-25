@@ -60,6 +60,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property firstName (base name: "first_name")', function() {
+      // uncomment below and update the code to test the property firstName
+      //var instane = new InsightsServiceApprovalApIs.UserIn();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastName (base name: "last_name")', function() {
+      // uncomment below and update the code to test the property lastName
+      //var instane = new InsightsServiceApprovalApIs.UserIn();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

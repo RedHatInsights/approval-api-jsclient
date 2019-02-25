@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import ActionOut from '../model/ActionOut';
 import RequestIn from '../model/RequestIn';
 import RequestOut from '../model/RequestOut';
 import StageOut from '../model/StageOut';
@@ -89,6 +90,57 @@ export default class RequestersApi {
      */
     addRequest(workflowId, requestIn) {
       return this.addRequestWithHttpInfo(workflowId, requestIn)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Return actions in a given stage
+     * List all actions of a stage
+     * @param {Number} stageId Id of stage
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/ActionOut>} and HTTP response
+     */
+    fetchActionsByStageIdWithHttpInfo(stageId) {
+      let postBody = null;
+
+      // verify the required parameter 'stageId' is set
+      if (stageId === undefined || stageId === null) {
+        throw new Error("Missing the required parameter 'stageId' when calling fetchActionsByStageId");
+      }
+
+
+      let pathParams = {
+        'stage_id': stageId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['APIKey_auth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [ActionOut];
+
+      return this.apiClient.callApi(
+        '/stages/{stage_id}/actions', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Return actions in a given stage
+     * List all actions of a stage
+     * @param {Number} stageId Id of stage
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/ActionOut>}
+     */
+    fetchActionsByStageId(stageId) {
+      return this.fetchActionsByStageIdWithHttpInfo(stageId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -191,6 +243,67 @@ export default class RequestersApi {
      */
     fetchRequestStages(requestId) {
       return this.fetchRequestStagesWithHttpInfo(requestId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Return an array of approval requests
+     * Return an array of requests
+     * @param {Object} opts Optional parameters
+     * @param {Array.<module:model/String>} opts.decision Fetch item by given decision (undecided, approved, denied)
+     * @param {Array.<module:model/String>} opts.state Fetch item by given state (pending, skipped, notified, finished)
+     * @param {String} opts.requester Fetch item by given requester
+     * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
+     * @param {Number} opts.offset Starting Offset (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/RequestOut>} and HTTP response
+     */
+    fetchRequestsWithHttpInfo(opts) {
+      opts = opts || {};
+      let postBody = null;
+
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'decision': this.apiClient.buildCollectionParam(opts['decision'], 'multi'),
+        'state': this.apiClient.buildCollectionParam(opts['state'], 'multi'),
+        'requester': opts['requester'],
+        'limit': opts['limit'],
+        'offset': opts['offset']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['APIKey_auth'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = [RequestOut];
+
+      return this.apiClient.callApi(
+        '/requests', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType
+      );
+    }
+
+    /**
+     * Return an array of approval requests
+     * Return an array of requests
+     * @param {Object} opts Optional parameters
+     * @param {Array.<module:model/String>} opts.decision Fetch item by given decision (undecided, approved, denied)
+     * @param {Array.<module:model/String>} opts.state Fetch item by given state (pending, skipped, notified, finished)
+     * @param {String} opts.requester Fetch item by given requester
+     * @param {Number} opts.limit How many items to return at one time (max 1000) (default to 20)
+     * @param {Number} opts.offset Starting Offset (default to 0)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/RequestOut>}
+     */
+    fetchRequests(opts) {
+      return this.fetchRequestsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

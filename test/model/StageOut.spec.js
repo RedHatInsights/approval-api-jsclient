@@ -54,6 +54,42 @@
       //expect(instance).to.be.a(InsightsServiceApprovalApIs.StageOut);
     });
 
+    it('should have the property id (base name: "id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instane = new InsightsServiceApprovalApIs.StageOut();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instane = new InsightsServiceApprovalApIs.StageOut();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property groupId (base name: "group_id")', function() {
+      // uncomment below and update the code to test the property groupId
+      //var instane = new InsightsServiceApprovalApIs.StageOut();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property state (base name: "state")', function() {
+      // uncomment below and update the code to test the property state
+      //var instane = new InsightsServiceApprovalApIs.StageOut();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property decision (base name: "decision")', function() {
+      // uncomment below and update the code to test the property decision
+      //var instane = new InsightsServiceApprovalApIs.StageOut();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property notifiedAt (base name: "notified_at")', function() {
+      // uncomment below and update the code to test the property notifiedAt
+      //var instane = new InsightsServiceApprovalApIs.StageOut();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

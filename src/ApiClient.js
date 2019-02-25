@@ -32,9 +32,9 @@ class ApiClient {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default http://localhost:3000/r/insights/platform/approval
+         * @default http://localhost:3000
          */
-        this.basePath = 'http://localhost:3000/r/insights/platform/approval'.replace(/\/+$/, '');
+        this.basePath = 'http://localhost:3000'.replace(/\/+$/, '');
 
         /**
          * The authentication methods to be included for all API calls.

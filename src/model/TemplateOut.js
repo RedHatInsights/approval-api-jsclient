@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import TemplateIn from './TemplateIn';
 
 /**
  * The TemplateOut model module.
@@ -24,13 +23,10 @@ class TemplateOut {
      * Constructs a new <code>TemplateOut</code>.
      * The template to categorize workflows.
      * @alias module:model/TemplateOut
-     * @extends module:model/TemplateIn
-     * @implements module:model/TemplateIn
-     * @param title {} 
      */
-    constructor(title) { 
-        TemplateIn.initialize(this, title);
-        TemplateOut.initialize(this, title);
+    constructor() { 
+        
+        TemplateOut.initialize(this);
     }
 
     /**
@@ -38,7 +34,7 @@ class TemplateOut {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, title) { 
+    static initialize(obj) { 
     }
 
     /**
@@ -51,9 +47,16 @@ class TemplateOut {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new TemplateOut();
-            TemplateIn.constructFromObject(data, obj);
-            TemplateIn.constructFromObject(data, obj);
 
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('title')) {
+                obj['title'] = ApiClient.convertToType(data['title'], 'String');
+            }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
         }
         return obj;
     }
@@ -61,12 +64,22 @@ class TemplateOut {
 
 }
 
+/**
+ * @member {String} id
+ */
+TemplateOut.prototype['id'] = undefined;
 
-// Implement TemplateIn interface:
 /**
  * @member {String} title
  */
-TemplateIn.prototype['title'] = undefined;
+TemplateOut.prototype['title'] = undefined;
+
+/**
+ * @member {String} description
+ */
+TemplateOut.prototype['description'] = undefined;
+
+
 
 
 

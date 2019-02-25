@@ -20,9 +20,7 @@ import GroupOperationIn from './model/GroupOperationIn';
 import GroupOut from './model/GroupOut';
 import RequestIn from './model/RequestIn';
 import RequestOut from './model/RequestOut';
-import StageIn from './model/StageIn';
 import StageOut from './model/StageOut';
-import TemplateIn from './model/TemplateIn';
 import TemplateOut from './model/TemplateOut';
 import UserIn from './model/UserIn';
 import UserOut from './model/UserOut';
@@ -115,22 +113,10 @@ export {
     RequestOut,
 
     /**
-     * The StageIn model constructor.
-     * @property {module:model/StageIn}
-     */
-    StageIn,
-
-    /**
      * The StageOut model constructor.
      * @property {module:model/StageOut}
      */
     StageOut,
-
-    /**
-     * The TemplateIn model constructor.
-     * @property {module:model/TemplateIn}
-     */
-    TemplateIn,
 
     /**
      * The TemplateOut model constructor.

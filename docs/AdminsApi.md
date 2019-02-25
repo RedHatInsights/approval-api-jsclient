@@ -1,23 +1,18 @@
 # InsightsServiceApprovalApIs.AdminsApi
 
-All URIs are relative to *http://localhost:3000/r/insights/platform/approval*
+All URIs are relative to *http://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addAction**](AdminsApi.md#addAction) | **POST** /stages/{stage_id}/actions | Add an action to a given stage
-[**addActionByRequestId**](AdminsApi.md#addActionByRequestId) | **POST** /requests/{request_id}/actions | Add an action to a given request
 [**addGroup**](AdminsApi.md#addGroup) | **POST** /groups | Add a new user group by given parameters
 [**addUser**](AdminsApi.md#addUser) | **POST** /users | Add a new user by given parameters
 [**addWorkflow**](AdminsApi.md#addWorkflow) | **POST** /templates/{template_id}/workflows | Add a workflow by given template id
-[**fetchActionById**](AdminsApi.md#fetchActionById) | **GET** /actions/{id} | Return an user action by id
-[**fetchActions**](AdminsApi.md#fetchActions) | **GET** /actions | Return a list of user actions
 [**fetchGroupById**](AdminsApi.md#fetchGroupById) | **GET** /groups/{id} | Return user group by given id
 [**fetchGroups**](AdminsApi.md#fetchGroups) | **GET** /groups | Return all user groups
 [**fetchGroupsByUserId**](AdminsApi.md#fetchGroupsByUserId) | **GET** /users/{user_id}/groups | Return associated groups by given user id
-[**fetchRequests**](AdminsApi.md#fetchRequests) | **GET** /requests | Return an array of approval requests
+[**fetchGroupsByWorkflowId**](AdminsApi.md#fetchGroupsByWorkflowId) | **GET** /workflows/{workflow_id}/groups | Return an array of groups for the workflow
 [**fetchRequestsByUserId**](AdminsApi.md#fetchRequestsByUserId) | **GET** /users/{user_id}/requests | Return associated requests by given user id
 [**fetchStageById**](AdminsApi.md#fetchStageById) | **GET** /stages/{id} | Return an approval stage by given id
-[**fetchStages**](AdminsApi.md#fetchStages) | **GET** /stages | Return all approval stages
 [**fetchTemplateById**](AdminsApi.md#fetchTemplateById) | **GET** /templates/{id} | Return a template by given id
 [**fetchTemplateWorkflows**](AdminsApi.md#fetchTemplateWorkflows) | **GET** /templates/{template_id}/workflows | Return an array of workflows by given template id
 [**fetchTemplates**](AdminsApi.md#fetchTemplates) | **GET** /templates | Return all templates
@@ -27,7 +22,7 @@ Method | HTTP request | Description
 [**fetchWorkflowById**](AdminsApi.md#fetchWorkflowById) | **GET** /workflows/{id} | Return an approval workflow by given id
 [**fetchWorkflowRequests**](AdminsApi.md#fetchWorkflowRequests) | **GET** /workflows/{workflow_id}/requests | Return approval requests by given workflow id
 [**fetchWorkflows**](AdminsApi.md#fetchWorkflows) | **GET** /workflows | Return all approval workflows
-[**groupOperation**](AdminsApi.md#groupOperation) | **POST** /groups/{id} | Operation on a list of users to a given group
+[**groupOperation**](AdminsApi.md#groupOperation) | **POST** /groups/{id} | Update users in a given group
 [**removeGroup**](AdminsApi.md#removeGroup) | **DELETE** /groups/{id} | Delete user group by given id
 [**removeUser**](AdminsApi.md#removeUser) | **DELETE** /users/{id} | Delete user by given id
 [**removeWorkflow**](AdminsApi.md#removeWorkflow) | **DELETE** /workflows/{id} | Delete approval workflow by given id
@@ -35,106 +30,6 @@ Method | HTTP request | Description
 [**updateUser**](AdminsApi.md#updateUser) | **PATCH** /users/{id} | Update an user by given id
 [**updateWorkflow**](AdminsApi.md#updateWorkflow) | **PATCH** /workflows/{id} | Update an approval workflow by given id
 
-
-<a name="addAction"></a>
-# **addAction**
-> ActionOut addAction(stageId, actionIn)
-
-Add an action to a given stage
-
-Add an action to a given stage
-
-### Example
-```javascript
-import InsightsServiceApprovalApIs from 'insights_service_approval_ap_is';
-let defaultClient = InsightsServiceApprovalApIs.ApiClient.instance;
-
-// Configure API key authorization: APIKey_auth
-let APIKey_auth = defaultClient.authentications['APIKey_auth'];
-APIKey_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//APIKey_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
-let stageId = 56; // Number | Id of stage
-let actionIn = new InsightsServiceApprovalApIs.ActionIn(); // ActionIn | Action object that will be added
-apiInstance.addAction(stageId, actionIn).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **stageId** | **Number**| Id of stage | 
- **actionIn** | [**ActionIn**](ActionIn.md)| Action object that will be added | 
-
-### Return type
-
-[**ActionOut**](ActionOut.md)
-
-### Authorization
-
-[APIKey_auth](../README.md#APIKey_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a name="addActionByRequestId"></a>
-# **addActionByRequestId**
-> ActionOut addActionByRequestId(requestId, actionIn)
-
-Add an action to a given request
-
-Add an action to a given request
-
-### Example
-```javascript
-import InsightsServiceApprovalApIs from 'insights_service_approval_ap_is';
-let defaultClient = InsightsServiceApprovalApIs.ApiClient.instance;
-
-// Configure API key authorization: APIKey_auth
-let APIKey_auth = defaultClient.authentications['APIKey_auth'];
-APIKey_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//APIKey_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
-let requestId = 56; // Number | Id of request
-let actionIn = new InsightsServiceApprovalApIs.ActionIn(); // ActionIn | Action object that will be added
-apiInstance.addActionByRequestId(requestId, actionIn).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestId** | **Number**| Id of request | 
- **actionIn** | [**ActionIn**](ActionIn.md)| Action object that will be added | 
-
-### Return type
-
-[**ActionOut**](ActionOut.md)
-
-### Authorization
-
-[APIKey_auth](../README.md#APIKey_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
 
 <a name="addGroup"></a>
 # **addGroup**
@@ -280,106 +175,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="fetchActionById"></a>
-# **fetchActionById**
-> ActionOut fetchActionById(id)
-
-Return an user action by id
-
-Return an user action by id
-
-### Example
-```javascript
-import InsightsServiceApprovalApIs from 'insights_service_approval_ap_is';
-let defaultClient = InsightsServiceApprovalApIs.ApiClient.instance;
-
-// Configure API key authorization: APIKey_auth
-let APIKey_auth = defaultClient.authentications['APIKey_auth'];
-APIKey_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//APIKey_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
-let id = 56; // Number | Query by id
-apiInstance.fetchActionById(id).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Number**| Query by id | 
-
-### Return type
-
-[**ActionOut**](ActionOut.md)
-
-### Authorization
-
-[APIKey_auth](../README.md#APIKey_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="fetchActions"></a>
-# **fetchActions**
-> [ActionOut] fetchActions(opts)
-
-Return a list of user actions
-
-Return a list of user actions
-
-### Example
-```javascript
-import InsightsServiceApprovalApIs from 'insights_service_approval_ap_is';
-let defaultClient = InsightsServiceApprovalApIs.ApiClient.instance;
-
-// Configure API key authorization: APIKey_auth
-let APIKey_auth = defaultClient.authentications['APIKey_auth'];
-APIKey_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//APIKey_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
-let opts = {
-  'limit': 20, // Number | How many items to return at one time (max 1000)
-  'offset': 0 // Number | Starting Offset
-};
-apiInstance.fetchActions(opts).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **Number**| How many items to return at one time (max 1000) | [optional] [default to 20]
- **offset** | **Number**| Starting Offset | [optional] [default to 0]
-
-### Return type
-
-[**[ActionOut]**](ActionOut.md)
-
-### Authorization
-
-[APIKey_auth](../README.md#APIKey_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="fetchGroupById"></a>
@@ -530,13 +325,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="fetchRequests"></a>
-# **fetchRequests**
-> [RequestOut] fetchRequests(opts)
+<a name="fetchGroupsByWorkflowId"></a>
+# **fetchGroupsByWorkflowId**
+> [WorkflowOut] fetchGroupsByWorkflowId(workflowId)
 
-Return an array of approval requests
+Return an array of groups for the workflow
 
-Return an array of requests
+Return an array of groups for the workflow
 
 ### Example
 ```javascript
@@ -550,14 +345,8 @@ APIKey_auth.apiKey = 'YOUR API KEY';
 //APIKey_auth.apiKeyPrefix = 'Token';
 
 let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
-let opts = {
-  'decision': ["null"], // [String] | Fetch item by given decision (undecided, approved, denied)
-  'state': ["null"], // [String] | Fetch item by given state (pending, skipped, notified, finished)
-  'requester': "requester_example", // String | Fetch item by given requester
-  'limit': 20, // Number | How many items to return at one time (max 1000)
-  'offset': 0 // Number | Starting Offset
-};
-apiInstance.fetchRequests(opts).then((data) => {
+let workflowId = 56; // Number | Id of workflow
+apiInstance.fetchGroupsByWorkflowId(workflowId).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -569,15 +358,11 @@ apiInstance.fetchRequests(opts).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **decision** | [**[String]**](String.md)| Fetch item by given decision (undecided, approved, denied) | [optional] 
- **state** | [**[String]**](String.md)| Fetch item by given state (pending, skipped, notified, finished) | [optional] 
- **requester** | **String**| Fetch item by given requester | [optional] 
- **limit** | **Number**| How many items to return at one time (max 1000) | [optional] [default to 20]
- **offset** | **Number**| Starting Offset | [optional] [default to 0]
+ **workflowId** | **Number**| Id of workflow | 
 
 ### Return type
 
-[**[RequestOut]**](RequestOut.md)
+[**[WorkflowOut]**](WorkflowOut.md)
 
 ### Authorization
 
@@ -674,58 +459,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**StageOut**](StageOut.md)
-
-### Authorization
-
-[APIKey_auth](../README.md#APIKey_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="fetchStages"></a>
-# **fetchStages**
-> [StageOut] fetchStages(opts)
-
-Return all approval stages
-
-Return all approval stages
-
-### Example
-```javascript
-import InsightsServiceApprovalApIs from 'insights_service_approval_ap_is';
-let defaultClient = InsightsServiceApprovalApIs.ApiClient.instance;
-
-// Configure API key authorization: APIKey_auth
-let APIKey_auth = defaultClient.authentications['APIKey_auth'];
-APIKey_auth.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//APIKey_auth.apiKeyPrefix = 'Token';
-
-let apiInstance = new InsightsServiceApprovalApIs.AdminsApi();
-let opts = {
-  'limit': 20, // Number | How many items to return at one time (max 1000)
-  'offset': 0 // Number | Starting Offset
-};
-apiInstance.fetchStages(opts).then((data) => {
-  console.log('API called successfully. Returned data: ' + data);
-}, (error) => {
-  console.error(error);
-});
-
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **Number**| How many items to return at one time (max 1000) | [optional] [default to 20]
- **offset** | **Number**| Starting Offset | [optional] [default to 0]
-
-### Return type
-
-[**[StageOut]**](StageOut.md)
 
 ### Authorization
 
@@ -1196,9 +929,9 @@ Name | Type | Description  | Notes
 # **groupOperation**
 > GroupOut groupOperation(id, groupOperationIn)
 
-Operation on a list of users to a given group
+Update users in a given group
 
-Users join in or withdraw from a given group
+Add or remove some users from a given group. It does not replace all users.
 
 ### Example
 ```javascript

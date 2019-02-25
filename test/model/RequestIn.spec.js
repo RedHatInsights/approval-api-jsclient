@@ -60,6 +60,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instane = new InsightsServiceApprovalApIs.RequestIn();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
+      //var instane = new InsightsServiceApprovalApIs.RequestIn();
+      //expect(instance).to.be();
+    });
+
     it('should have the property content (base name: "content")', function() {
       // uncomment below and update the code to test the property content
       //var instane = new InsightsServiceApprovalApIs.RequestIn();

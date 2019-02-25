@@ -23,12 +23,12 @@ class RequestIn {
      * Constructs a new <code>RequestIn</code>.
      * Input parameters for approval request object.
      * @alias module:model/RequestIn
-     * @param requester {String} Requester info
+     * @param name {String} Request name
      * @param content {Object} JSON object with request content
      */
-    constructor(requester, content) { 
+    constructor(name, content) { 
         
-        RequestIn.initialize(this, requester, content);
+        RequestIn.initialize(this, name, content);
     }
 
     /**
@@ -36,8 +36,8 @@ class RequestIn {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, requester, content) { 
-        obj['requester'] = requester;
+    static initialize(obj, name, content) { 
+        obj['name'] = name;
         obj['content'] = content;
     }
 
@@ -55,6 +55,12 @@ class RequestIn {
             if (data.hasOwnProperty('requester')) {
                 obj['requester'] = ApiClient.convertToType(data['requester'], 'String');
             }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
             if (data.hasOwnProperty('content')) {
                 obj['content'] = ApiClient.convertToType(data['content'], Object);
             }
@@ -66,10 +72,22 @@ class RequestIn {
 }
 
 /**
- * Requester info
+ * Requester id
  * @member {String} requester
  */
 RequestIn.prototype['requester'] = undefined;
+
+/**
+ * Request name
+ * @member {String} name
+ */
+RequestIn.prototype['name'] = undefined;
+
+/**
+ * Request description
+ * @member {String} description
+ */
+RequestIn.prototype['description'] = undefined;
 
 /**
  * JSON object with request content

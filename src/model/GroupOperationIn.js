@@ -24,7 +24,7 @@ class GroupOperationIn {
      * Operation type and parameters to a given group
      * @alias module:model/GroupOperationIn
      * @param operation {module:model/GroupOperationIn.OperationEnum} Types of group operation, may be either join_users or withdraw_users.
-     * @param parameters {Object} ID of users in the group
+     * @param parameters {Object} JSON object. Currently user ids in the group
      */
     constructor(operation, parameters) { 
         
@@ -72,7 +72,7 @@ class GroupOperationIn {
 GroupOperationIn.prototype['operation'] = undefined;
 
 /**
- * ID of users in the group
+ * JSON object. Currently user ids in the group
  * @member {Object} parameters
  */
 GroupOperationIn.prototype['parameters'] = undefined;

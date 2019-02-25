@@ -23,12 +23,11 @@ class ActionIn {
      * Constructs a new <code>ActionIn</code>.
      * Input parameters for Action object
      * @alias module:model/ActionIn
-     * @param processedBy {String} Processor info who perform the action
      * @param operation {module:model/ActionIn.OperationEnum} Types of action, may be one of the value (approve, deny, notify, memo, or skip). The stage will be updated according to the operation.
      */
-    constructor(processedBy, operation) { 
+    constructor(operation) { 
         
-        ActionIn.initialize(this, processedBy, operation);
+        ActionIn.initialize(this, operation);
     }
 
     /**
@@ -36,8 +35,7 @@ class ActionIn {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, processedBy, operation) { 
-        obj['processed_by'] = processedBy;
+    static initialize(obj, operation) { 
         obj['operation'] = operation;
     }
 
@@ -58,6 +56,9 @@ class ActionIn {
             if (data.hasOwnProperty('operation')) {
                 obj['operation'] = ApiClient.convertToType(data['operation'], 'String');
             }
+            if (data.hasOwnProperty('comments')) {
+                obj['comments'] = ApiClient.convertToType(data['comments'], 'String');
+            }
         }
         return obj;
     }
@@ -66,7 +67,7 @@ class ActionIn {
 }
 
 /**
- * Processor info who perform the action
+ * The person who performs the action
  * @member {String} processed_by
  */
 ActionIn.prototype['processed_by'] = undefined;
@@ -77,6 +78,12 @@ ActionIn.prototype['processed_by'] = undefined;
  * @default 'memo'
  */
 ActionIn.prototype['operation'] = 'memo';
+
+/**
+ * Comments for action
+ * @member {String} comments
+ */
+ActionIn.prototype['comments'] = undefined;
 
 
 

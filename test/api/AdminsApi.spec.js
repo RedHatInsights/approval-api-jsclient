@@ -48,26 +48,6 @@
   }
 
   describe('AdminsApi', function() {
-    describe('addAction', function() {
-      it('should call addAction successfully', function(done) {
-        //uncomment below and update the code to test addAction
-        //instance.addAction(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('addActionByRequestId', function() {
-      it('should call addActionByRequestId successfully', function(done) {
-        //uncomment below and update the code to test addActionByRequestId
-        //instance.addActionByRequestId(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('addGroup', function() {
       it('should call addGroup successfully', function(done) {
         //uncomment below and update the code to test addGroup
@@ -92,26 +72,6 @@
       it('should call addWorkflow successfully', function(done) {
         //uncomment below and update the code to test addWorkflow
         //instance.addWorkflow(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('fetchActionById', function() {
-      it('should call fetchActionById successfully', function(done) {
-        //uncomment below and update the code to test fetchActionById
-        //instance.fetchActionById(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('fetchActions', function() {
-      it('should call fetchActions successfully', function(done) {
-        //uncomment below and update the code to test fetchActions
-        //instance.fetchActions(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -148,10 +108,10 @@
         done();
       });
     });
-    describe('fetchRequests', function() {
-      it('should call fetchRequests successfully', function(done) {
-        //uncomment below and update the code to test fetchRequests
-        //instance.fetchRequests(function(error) {
+    describe('fetchGroupsByWorkflowId', function() {
+      it('should call fetchGroupsByWorkflowId successfully', function(done) {
+        //uncomment below and update the code to test fetchGroupsByWorkflowId
+        //instance.fetchGroupsByWorkflowId(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
@@ -172,16 +132,6 @@
       it('should call fetchStageById successfully', function(done) {
         //uncomment below and update the code to test fetchStageById
         //instance.fetchStageById(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('fetchStages', function() {
-      it('should call fetchStages successfully', function(done) {
-        //uncomment below and update the code to test fetchStages
-        //instance.fetchStages(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

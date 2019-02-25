@@ -53,6 +53,12 @@ class UserIn {
             if (data.hasOwnProperty('email')) {
                 obj['email'] = ApiClient.convertToType(data['email'], 'String');
             }
+            if (data.hasOwnProperty('first_name')) {
+                obj['first_name'] = ApiClient.convertToType(data['first_name'], 'String');
+            }
+            if (data.hasOwnProperty('last_name')) {
+                obj['last_name'] = ApiClient.convertToType(data['last_name'], 'String');
+            }
         }
         return obj;
     }
@@ -65,6 +71,16 @@ class UserIn {
  * @member {String} email
  */
 UserIn.prototype['email'] = undefined;
+
+/**
+ * @member {String} first_name
+ */
+UserIn.prototype['first_name'] = undefined;
+
+/**
+ * @member {String} last_name
+ */
+UserIn.prototype['last_name'] = undefined;
 
 
 

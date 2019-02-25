@@ -67,6 +67,10 @@ class WorkflowIn {
  * @member {String} name
  */
 Workflow.prototype['name'] = undefined;
+/**
+ * @member {String} description
+ */
+Workflow.prototype['description'] = undefined;
 
 
 
