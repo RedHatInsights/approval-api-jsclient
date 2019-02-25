@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **groupId** | **String** | Associated group id | [optional] 
 **state** | **String** | The state of stage or request. It may be one of values (pending, skipped, notified or finished) | [optional] [default to &#39;pending&#39;]
 **decision** | **String** | Final decision, may be one of the value (undecided, approved, or denied) | [optional] [default to &#39;undecided&#39;]
-**notifiedAt** | [**Date**](DateTime.md) | the time approvers in the stage are notified | [optional] 
+**notifiedAt** | **Date** | the time approvers in the stage are notified | [optional] 
 
 
 <a name="StateEnum"></a>

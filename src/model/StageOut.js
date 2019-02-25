@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import DateTime from './DateTime';
 
 /**
  * The StageOut model module.
@@ -107,7 +106,7 @@ StageOut.prototype['decision'] = 'undecided';
 
 /**
  * the time approvers in the stage are notified
- * @member {module:model/Date} notified_at
+ * @member {Date} notified_at
  */
 StageOut.prototype['notified_at'] = undefined;
 
